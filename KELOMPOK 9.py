@@ -345,4 +345,20 @@ def databalita():
                     print("Maaf bayi anda tidak termasuk bayi balita.")
                     databayi.append('Bukan bayi balita')
                     break 
- 
+        else:
+            print("Mohon memasukkan jenis kelamin yang sesuai")
+             
+        #berfungsi menyimpan data header ke dictionary global
+        datagizi[judul]=header     
+        #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
+        datagizi[nama]=databayi
+        #berfungsi menanyakan perulangan untuk menambah data
+        print("----------------")
+        print("")
+        print("Apakah ada yang perlu di inputkan lagi?")
+        print("1). Ada\n2). Tidak Ada")
+        ulang = input("# ")
+        if ulang == ("1"):
+            identitas = True
+        else:
+            identitas = False
