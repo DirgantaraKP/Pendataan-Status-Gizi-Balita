@@ -5,6 +5,9 @@ Created on Sat May 30 14:14:01 2020
 @author: KELOMPOK 9 PROGKOMP
 """
 
+
+#dictionary global
+datagizi = {}
         
 #fungsipendataanbayi
 def databalita():
@@ -362,3 +365,24 @@ def databalita():
             identitas = True
         else:
             identitas = False
+def datanama():        
+        namabayi = True
+    
+        while namabayi:
+                ceknama= input(("Tuliskan nama bayi: "))
+                judul = 'judul'
+                if ceknama in datagizi:
+                        print(datagizi[judul])
+                        print(datagizi[ceknama])
+                else:
+                        print("Maaf,nama bayi tidak tersedia.")
+                print("----------------")
+                print("")
+                print("Apakah ingin cek lagi?")
+                print("1). Ya\n2). Tidak")
+                ulang = input("# ")
+                if ulang == ("1"):
+                        namabayi = True
+                else:
+                        namabayi = False
+        
