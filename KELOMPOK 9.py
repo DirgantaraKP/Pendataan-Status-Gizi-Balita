@@ -32,8 +32,13 @@ def databalita():
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
             databayi.append('Laki-Laki')
-            usia = int(input("Berapa usia bayi?(bulan): "))
-            databayi.append(f"{usia} bulan")
+            tahun_lahir =int(input('Tahun Lahir: '))
+            bulan_lahir = int(input('Bulan Lahir: '))
+            tahun_data = int(input('Tahun Pendataan: '))
+            bulan_data = int(input('Bulan Pendataan: '))
+            jumlah_tahun = (tahun_data - tahun_lahir) * 12 
+            jumlah_bulan = bulan_data - bulan_lahir
+            usia = int(jumlah_tahun + jumlah_bulan)
             datamedian_laki= [
         [0,2.9,3.3,3.9],
         [1,3.9,4.5,5.1],
