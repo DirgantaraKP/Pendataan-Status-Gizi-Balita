@@ -11,7 +11,7 @@ FUTURE
 Apakah ada yang perlu di inputkan lagi?
 1). Ada
 2). Tidak Ada
-# 2
+2
 
 Kalau saya isi Ada dan angka 2 hasilny sama saja kembali ke menu
 
@@ -23,7 +23,6 @@ Kalau saya isi Ada dan angka 2 hasilny sama saja kembali ke menu
 
 6. Keluaran program untuk pengguna ya tidak seperti di bawah ini, tetapi buatlah 'seperti tabel' atau di menurun ke bawah. bukan dalam bentuk list :
 
-# 2
 Tuliskan nama bayi: Heru
 ['NAMA', 'JENIS KELAMIN', 'USIA', 'BB', 'INDEKS', 'STATUS']
 ['Heru', 'Laki-Laki', '45 bulan', '19.0 kg', 1.45, 'Gizi Normal']
