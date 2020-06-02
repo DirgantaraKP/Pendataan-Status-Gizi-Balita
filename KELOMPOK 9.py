@@ -5,7 +5,7 @@ Created on Sat May 30 14:14:01 2020
 @author: KELOMPOK 9 PROGKOMP
 """
 
-
+from os import system
 #dictionary global
 datagizi = {}
         
@@ -387,10 +387,25 @@ def datanama():
                         namabayi = False
         
 while True:
+    system ('cls')
     print("======================================================")
-    print("            Selamat datang pada aplikasi")
-    print("               (1) untuk mendata bayi")    
+    print("               Selamat datang pada aplikasi")
+    print("        Kami memiliki 3 fitur yang dapat digunakan")
+    print("               (1) untuk pendataan gizi bayi")    
     print("               (2) untuk cek status gizi")
     print("               (3) untuk keluar program")
-    print("              Silahkan pilih salah satu:")
+    print("            Silahkan pilih salah satu fitur:")
+    print('                   Kelompok 9 Present')
     print("======================================================")
+    
+    start = input("# ")
+    if start== ("1"):
+        system ("cls")
+        databalita()
+    elif start== ("2"):
+        system ("cls")
+        datanama()
+    else:
+        system ("cls")
+        print("PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")   
+        break
