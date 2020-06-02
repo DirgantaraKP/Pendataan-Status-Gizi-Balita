@@ -386,3 +386,11 @@ def datanama():
                 else:
                         namabayi = False
         
+while True:
+    print("======================================================")
+    print("            Selamat datang pada aplikasi")
+    print("               (1) untuk mendata bayi")    
+    print("               (2) untuk cek status gizi")
+    print("               (3) untuk keluar program")
+    print("              Silahkan pilih salah satu:")
+    print("======================================================")
