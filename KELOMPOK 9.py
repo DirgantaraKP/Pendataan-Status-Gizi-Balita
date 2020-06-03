@@ -5,9 +5,14 @@ Created on Sat May 30 14:14:01 2020
 @author: KELOMPOK 9 PROGKOMP
 """
 
+
 from os import system
-#dictionary global
+import datetime
+
+#dictionaryglobal
 datagizi = {}
+datagizicsv = {}
+
         
 #fungsipendataanbayi
 def databalita():
@@ -15,30 +20,53 @@ def databalita():
     identitas = True
     
     while identitas:
-        nama = str(input("Tuliskan nama bayi: "))
+        
         #list untuk menampung data bayi
         databayi = []
+        nama = str(input("Tuliskan nama bayi: "))
         databayi.append(nama)
-        judul = 'judul'
-        #list untuk menampung judul data bayi
-        header =[]
-        header.append('NAMA')
-        header.append('JENIS KELAMIN')
-        header.append('USIA')
-        header.append('BB')
-        header.append('INDEKS')
-        header.append('STATUS')
-        jenis_kelamin=(str(input("1). Laki-Laki\n2). Perempuan\nJenis Kelamin: ")))    
+        jenis_kelamin=(str(input("1). Laki-Laki\n2). Perempuan\nJenis Kelamin: ")))         
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
-            databayi.append('Laki-Laki')
-            tahun_lahir =int(input('Tahun Lahir: '))
-            bulan_lahir = int(input('Bulan Lahir: '))
-            tahun_data = int(input('Tahun Pendataan: '))
-            bulan_data = int(input('Bulan Pendataan: '))
-            jumlah_tahun = (tahun_data - tahun_lahir) * 12 
-            jumlah_bulan = bulan_data - bulan_lahir
-            usia = int(jumlah_tahun + jumlah_bulan)
+            #fungsi pengolahan usia dari waktu pendataan realtime 
+            tanggal= True
+            while tanggal:   
+                tanggaldata = datetime.datetime.now()  
+                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
+                tgl= int(input("Tanggal(1-31): "))
+                if 1<= tgl <=31:
+                    bln= int(input("Bulan(1-12): "))
+                    if 1<= bln <=12:                    
+                        thn= int(input("Tahun: "))
+                    else:  
+                        print("Mohon masukkan data yang sesuai")
+                        tanggal = True    
+                else:
+                    print("Mohon masukkan data yang sesuai")
+                    tanggal = True
+       
+                tgl_lahir=(f"{tgl}-{bln}-{thn}")
+                databayi.append(tgl_lahir)
+   
+   
+                yearvalue = tanggaldata.year
+                monthvalue = tanggaldata.month
+                dayvalue = tanggaldata.day
+                tgl_data= (f"{dayvalue}-{monthvalue}-{yearvalue}")
+                databayi.append(tgl_data)
+    
+                dhari = dayvalue - tgl
+                if dhari >= 15:
+                    dhari = 1
+                else:
+                    dhari = 0
+                dbulan= monthvalue - bln
+                dtahun= (yearvalue - thn)*12
+                total= dhari + dtahun + dbulan
+                usia= total               
+                databayi.append(f"{usia} bulan")
+                break
+            databayi.append('Laki-Laki')            
             datamedian_laki= [
         [0,2.9,3.3,3.9],
         [1,3.9,4.5,5.1],
@@ -116,24 +144,28 @@ def databalita():
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Lebih")
                              databayi.append('Gizi Lebih')
+                             status = 'Gizi Lebih'
                              break                           
                          elif -3 <= indeks <= -2:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Kurang")
                              databayi.append('Gizi Kurang')
+                             status = 'Gizi Kurang'
                              break                           
                          elif indeks < -3:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Buruk")
                              databayi.append('Gizi Buruk')
+                             status = 'Gizi Buruk'
                              break                           
                          else:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
+                             status = 'Gizi Normal'
                              break                          
                     elif bb<median[2]:
                          indeks = round((bb - median[2])/(median[2] - median[1]),2)
@@ -143,24 +175,28 @@ def databalita():
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Lebih")
                              databayi.append('Gizi Lebih')
+                             status = 'Gizi Lebih'
                              break                            
                          elif -3 <= indeks <= -2:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Kurang")
                              databayi.append('Gizi Kurang')
+                             status = 'Gizi Kurang'
                              break                           
                          elif indeks < -3:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Buruk")
                              databayi.append('Gizi Buruk')
+                             status = 'Gizi Buruk'
                              break                             
                          else:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
+                             status = 'Gizi Normal'
                              break                             
                     else:
                          
@@ -171,36 +207,77 @@ def databalita():
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Lebih")
                              databayi.append('Gizi Lebih')
+                             status = 'Gizi Lebih'
                              break                          
                          elif -3 <= indeks <= -2:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Kurang")
                              databayi.append('Gizi Kurang')
+                             status = 'Gizi Kurang'
                              break                           
                          elif indeks < -3:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Buruk")
                              databayi.append('Gizi Buruk')
+                             status = 'Gizi Buruk'
                              break                           
                          else:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
+                             status = 'Gizi Normal'
                              break                             
                 elif usia >=60:
                     print("--------------------")
                     print("Maaf bayi anda tidak termasuk bayi balita.")
                     databayi.append('Bukan bayi balita')
                     break                
+               
         #pendataan bayi perempuan
-        elif jenis_kelamin == ("2"):
-             databayi.append('Perempuan')
-             usia = int(input("Berapa usia bayi?(bulan): "))
-             databayi.append(f"{usia} bulan")
-             datamedian_perempuan = [
+        elif jenis_kelamin == ("2"):            
+            #fungsi pengolahan usia berdasarkan tanggal
+            tanggal= True
+            while tanggal:   
+                tanggaldata = datetime.datetime.now()  
+                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Hanya balita yang lahir 5 tahun sebelum pendataan ini.")   
+                tgl= int(input("Tanggal(1-31): "))
+                if 1<= tgl <=31:
+                    bln= int(input("Bulan(1-12): "))
+                    if 1<= bln <=12:                    
+                        thn= int(input("Tahun: "))
+                    else:  
+                        print("Mohon masukkan data yang sesuai")
+                        tanggal = True    
+                else:
+                    print("Mohon masukkan data yang sesuai")
+                    tanggal = True
+       
+                tgl_lahir=(f"{tgl}-{bln}-{thn}")
+                databayi.append(tgl_lahir)
+   
+   
+                yearvalue = tanggaldata.year
+                monthvalue = tanggaldata.month
+                dayvalue = tanggaldata.day
+                tgl_data = (f"{dayvalue}-{monthvalue}-{yearvalue}")
+                databayi.append(tgl_data)
+    
+                dhari = dayvalue - tgl
+                if dhari >= 15:
+                    dhari = 1
+                else:
+                    dhari = 0
+                dbulan= monthvalue - bln
+                dtahun= (yearvalue - thn)*12
+                total= dhari + dtahun + dbulan
+                usia= total               
+                databayi.append(f"{usia} bulan")
+                break
+            databayi.append('Perempuan')                         
+            datamedian_perempuan = [
                      [0,2.8,3.2,3.7],
                      [1,3.6,4.2,4.8],
                      [2,4.5,5.1,5.8],
@@ -263,8 +340,8 @@ def databalita():
                      [59,15.6,18,21],
                      [60,15.8,18.2,21.2],
                      ]
-             median = 0
-             for median in datamedian_perempuan:
+            median = 0
+            for median in datamedian_perempuan:
                  if usia in median:
                      bb = float(input("Berapa berat bayi?(kg): "))
                      databayi.append(f"{bb} kg")
@@ -276,24 +353,28 @@ def databalita():
                             print("Indeks Gizi =", round(indeks,2))
                             print("Status Gizi = Gizi Lebih")
                             databayi.append('Gizi Lebih')
+                            status = 'Gizi Lebih'
                             break
                         elif -3 <= indeks <= -2:
                             print("--------------------")
                             print("Indeks Gizi =", round(indeks,2))
                             print("Status Gizi = Gizi Kurang")
                             databayi.append('Gizi Kurang')
+                            status = 'Gizi Kurang'
                             break
                         elif indeks < -3:
                             print("--------------------")
                             print("Indeks Gizi =", round(indeks,2))
                             print("Status Gizi = Gizi Buruk")
                             databayi.append('Gizi Buruk')
+                            status = 'Gizi Buruk'
                             break
                         else:
                             print("--------------------")
                             print("Indeks Gizi =", round(indeks,2))
                             print("Status Gizi = Gizi Normal")
                             databayi.append('Gizi Normal')
+                            status = 'Gizi Normal'
                             break
                      elif bb<median[2]:
                           indeks = round((bb - median[2])/(median[2] - median[1]),2)
@@ -303,24 +384,28 @@ def databalita():
                               print("Indeks Gizi =", round(indeks,2))
                               print("Status Gizi = Gizi Lebih")
                               databayi.append('Gizi Lebih')
+                              status = 'Gizi Lebih'
                               break 
                           elif -3 <= indeks <= -2:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Kurang")
                              databayi.append('Gizi Kurang')
+                             status = 'Gizi Kurang'
                              break
                           elif indeks < -3:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Buruk")
                              databayi.append('Gizi Buruk')
+                             status = 'Gizi Buruk'
                              break
                           else:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
+                             status = 'Gizi Normal'
                              break
                      else:
                          indeks = round((bb - median[2])/(median[2]),2)
@@ -330,36 +415,39 @@ def databalita():
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Lebih")
                              databayi.append('Gizi Lebih')
+                             status = 'Gizi Lebih'
                              break
                          elif indeks -3 <= indeks <= -2:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Kurang")
                              databayi.append('Gizi Kurang')
+                             status = 'Gizi Kurang'
                              break
                          elif indeks < -3:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Buruk")
                              databayi.append('Gizi Buruk')
+                             status = 'Gizi Buruk'
                              break
                          else:
                              print("--------------------")
                              print("Indeks Gizi =", round(indeks,2))
                              print("Status Gizi = Gizi Normal")
-                             databayi.append('Gizi Normal')
+                             databayi.append('Gizi Normal')  
+                             status = 'Gizi Normal'                         
                              break
                  elif usia >= 60:
                     print("Maaf bayi anda tidak termasuk bayi balita.")
                     databayi.append('Bukan bayi balita')
-                    break 
+                    break
         else:
-            print("Mohon memasukkan jenis kelamin yang sesuai")
-             
-        #berfungsi menyimpan data header ke dictionary global
-        datagizi[judul]=header     
+            print("Mohon memasukkan jenis kelamin yang sesuai")                        
         #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
         datagizi[nama]=databayi
+        
+        
         #berfungsi menanyakan perulangan untuk menambah data
         print("----------------")
         print("")
@@ -368,28 +456,47 @@ def databalita():
         ulang = input("# ")
         if ulang == ("1"):
             identitas = True
-        else:
+        elif ulang == ("2"):
             identitas = False
-def datanama():        
-        namabayi = True
+        else:
+            print("Input anda salah!!\nMohon masukkan angka berdasarkan pilihan di atas")
+            break
+        import csv
+        import os
+        header=['NAMA', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
+        
+        with open('datagizi.csv','a', newline='\n') as filecsv:
+            datagizicsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jenis_kelamin, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
+            
+            writer = csv.DictWriter(filecsv, fieldnames = header)
+            if os.stat('datagizi.csv').st_size == 0:
+                writer.writeheader()  
+            else:
+                None
+            writer.writerow(datagizicsv)    
+            
+#fungsi cek data berdasarkan nama            
+def datanama():
+    namabayi = True
     
-        while namabayi:
-                ceknama= input(("Tuliskan nama bayi: "))
-                judul = 'judul'
-                if ceknama in datagizi:
-                        print(datagizi[judul])
-                        print(datagizi[ceknama])
-                else:
-                        print("Maaf,nama bayi tidak tersedia.")
-                print("----------------")
-                print("")
-                print("Apakah ingin cek lagi?")
-                print("1). Ya\n2). Tidak")
-                ulang = input("# ")
-                if ulang == ("1"):
-                        namabayi = True
-                else:
-                        namabayi = False
+    while namabayi:
+        ceknama = str(input("Tuliskan nama bayi anda: "))
+        if ceknama in datagizi:
+            print(datagizi[ceknama][0])
+            print(datagizi[ceknama][6])
+            print(datagizi[ceknama][7])
+        else:
+            print("Maaf,nama bayi tidak tersedia.")
+        print("----------------")
+        print("")
+        print("Apakah ingin cek lagi?")
+        print("1). Ya\n2). Tidak")
+        ulang = input("# ")
+        if ulang == ("1"):
+            namabayi = True
+        else:
+            namabayi = False      
+            
         
 while True:
     system ('cls')
