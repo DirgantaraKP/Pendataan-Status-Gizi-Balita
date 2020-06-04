@@ -236,6 +236,7 @@ def databalita():
                     print(f"Usia bayi anda adalah {usia} bulan")
                     indeks = 'Tidak ada'
                     status = 'Bukan bayi balita
+                    databayi.append('Tidak ada')
                     databayi.append('Bukan bayi balita')
                     break                
                
@@ -446,9 +447,11 @@ def databalita():
                     print(f"Usia bayi anda adalah {usia} bulan")
                     indeks = 'Tidak ada'
                     status = 'Bukan bayi balita
+                    databayi.append('Tidak ada')
                     databayi.append('Bukan bayi balita')
         else:
-            print("Mohon memasukkan jenis kelamin yang sesuai")                        
+            print("Mohon memasukkan jenis kelamin yang sesuai\nAnda akan kembali ke menu utama") 
+            break
         #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
         datagizi[nama]=databayi
         
@@ -499,9 +502,11 @@ def datanama():
         ulang = input("# ")
         if ulang == ("1"):
             namabayi = True
+        elif ulang == ("2"):
+            namabayi = False   
         else:
-            namabayi = False      
-            
+            print("Input anda salah!!\nMohon masukkan angka berdasarkan pilihan di atas")
+            break                    
         
 while True:
     system ('cls')
