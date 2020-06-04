@@ -32,7 +32,7 @@ def databalita():
                 jk= 'Laki-Laki'
                 #fungsi pengolahan usia dari waktu pendataan realtime 
                 tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
+                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Bayi yang berusia >= 60 bulan sebelum pendataan ini akan ditolak")   
                 tgl= int(input("Tanggal(1-31): "))
                 if 1<= tgl <=31:                        
                         bln= int(input("Bulan(1-12): "))
@@ -232,16 +232,19 @@ def databalita():
                              break                             
                 elif usia >=60:
                     print("--------------------")
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
+                    print("Maaf bayi anda bukan termasuk bayi balita.")
+                    print(f"Usia bayi anda adalah {usia} bulan")
+                    indeks = 'Tidak ada'
+                    status = 'Bukan bayi balita
                     databayi.append('Bukan bayi balita')
                     break                
                
         #pendataan bayi perempuan
         elif jenis_kelamin == ("2"):            
-                jk= 'Laki-Laki'
+                jk= 'Perempuan'
                 #fungsi pengolahan usia dari waktu pendataan realtime 
                 tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
+                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Bayi yang berusia >= 60 bulan sebelum pendataan ini akan ditolak")   
                 tgl= int(input("Tanggal(1-31): "))
                 if 1<= tgl <=31:                        
                         bln= int(input("Bulan(1-12): "))
@@ -438,9 +441,12 @@ def databalita():
                              status = 'Gizi Normal'                         
                              break
                  elif usia >= 60:
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
+                    print("--------------------")
+                    print("Maaf bayi anda bukan termasuk bayi balita.")
+                    print(f"Usia bayi anda adalah {usia} bulan")
+                    indeks = 'Tidak ada'
+                    status = 'Bukan bayi balita
                     databayi.append('Bukan bayi balita')
-                    break
         else:
             print("Mohon memasukkan jenis kelamin yang sesuai")                        
         #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
@@ -465,7 +471,7 @@ def databalita():
         header=['NAMA', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
         
         with open('datagizi.csv','a', newline='\n') as filecsv:
-            datagizicsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jenis_kelamin, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
+            datagizicsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jk, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
             
             writer = csv.DictWriter(filecsv, fieldnames = header)
             if os.stat('datagizi.csv').st_size == 0:
