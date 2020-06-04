@@ -9,8 +9,9 @@ Created on Sat May 30 14:14:01 2020
 from os import system
 import datetime
 
-#dictionaryglobal
+#dictionary untuk menyimpan input an dalam list
 datagizi = {}
+#dictionary untuk membentuk csv
 datagizicsv = {}
 
         
@@ -28,22 +29,21 @@ def databalita():
         jenis_kelamin=(str(input("1). Laki-Laki\n2). Perempuan\nJenis Kelamin: ")))         
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
-            #fungsi pengolahan usia dari waktu pendataan realtime 
-            tanggal= True
-            while tanggal:   
+                jk= 'Laki-Laki'
+                #fungsi pengolahan usia dari waktu pendataan realtime 
                 tanggaldata = datetime.datetime.now()  
                 print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
                 tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
+                if 1<= tgl <=31:                        
+                        bln= int(input("Bulan(1-12): "))
+                        if 1<= bln <=12:                    
+                                thn= int(input("Tahun: "))
+                        else:  
+                             print("Mohon masukkan data yang sesuai\nAnda akan kembali pada menu utama secara otomatis")
+                             break  
                 else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
+                     print("Mohon masukkan data yang sesuai\nAnda akan kembali pada menu utama secara otomatis")
+                     break   
        
                 tgl_lahir=(f"{tgl}-{bln}-{thn}")
                 databayi.append(tgl_lahir)
@@ -238,22 +238,21 @@ def databalita():
                
         #pendataan bayi perempuan
         elif jenis_kelamin == ("2"):            
-            #fungsi pengolahan usia berdasarkan tanggal
-            tanggal= True
-            while tanggal:   
+                jk= 'Laki-Laki'
+                #fungsi pengolahan usia dari waktu pendataan realtime 
                 tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Hanya balita yang lahir 5 tahun sebelum pendataan ini.")   
+                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
                 tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
+                if 1<= tgl <=31:                        
+                        bln= int(input("Bulan(1-12): "))
+                        if 1<= bln <=12:                    
+                                thn= int(input("Tahun: "))
+                        else:  
+                             print("Mohon masukkan data yang sesuai\nAnda akan kembali pada menu utama secara otomatis")
+                             break  
                 else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
+                     print("Mohon masukkan data yang sesuai\nAnda akan kembali pada menu utama secara otomatis")
+                     break   
        
                 tgl_lahir=(f"{tgl}-{bln}-{thn}")
                 databayi.append(tgl_lahir)
