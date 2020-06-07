@@ -25,7 +25,7 @@ q3 = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, Sil
 q4 = Label(root, text="                                                     ")
 q5 = Label(root, text="                                                     ")
 q6 = Label(root, text="                                                     ")
-q7 = Label(root, text="    Created by Kelompok 9   ")
+q7 = Label(root, text="   Kelompok 9 Presents   ")
 q8 = Label(root, text="====================================================")
 
 q0.pack()
