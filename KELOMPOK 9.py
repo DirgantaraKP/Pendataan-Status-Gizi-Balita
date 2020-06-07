@@ -8,6 +8,44 @@ Created on Sat May 30 14:14:01 2020
 
 from os import system
 import datetime
+from tkinter import *
+
+root = Tk()
+q0 = Label(root, text="====================================================")
+q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI    ")
+T1 = Label(root, text="             Kelompok kami terdiri dari:             ")
+z2 = Label(root, text="                                                     ")
+T2 = Label(root, text="           1.Anggara Firmansyah  (I0319013)      ")
+T3 = Label(root, text="           2.Aulia Ba'syafira W  (I0319017)       ")
+T4 = Label(root, text="           3.Dirgantara Kusuma P (I0319026)       ")
+T5 = Label(root, text="           4.Fatimah Jihan A     (I0319035)        ")
+T6 = Label(root, text="           5.Anisa Agustina      (I0318013)         ")
+q2 = Label(root, text="                                                     ")
+q3 = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, Silahkan tutup pesan ini \nTerima Kasih   ")
+q4 = Label(root, text="                                                     ")
+q5 = Label(root, text="                                                     ")
+q6 = Label(root, text="                                                     ")
+q7 = Label(root, text="    Created by Kelompok 9   ")
+q8 = Label(root, text="====================================================")
+
+q0.pack()
+q1.pack()
+T1.pack()
+z2.pack()
+T2.pack()
+T3.pack()
+T4.pack()
+T5.pack()
+T6.pack()
+q2.pack()
+q3.pack(fill=X)
+q4.pack()
+q5.pack()
+q6.pack()
+q7.pack()
+q8.pack()
+
+root.mainloop()
 
 #dictionaryglobal
 datagizi = {}
