@@ -179,11 +179,10 @@ def databalita():
         [58,15.8,18,20.6],
         [59,15.9,18.2,20.8],
         [60,16,18.3,21]        
-        ]
-            
-            median=0
-            for median in datamedian_laki:
-                if usia in median:
+            ]
+             for median in datamedian_laki:
+                us = ([median][0][0])
+                if usia == us:
                     bb = float(input("Berapa berat bayi?(kg): "))
                     databayi.append(f"{bb} kg")                   
                     if bb>median[2]:
@@ -216,7 +215,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                          
+                             break                                           
                     elif bb<median[2]:
                          indeks = round((bb - median[2])/(median[2] - median[1]),2)
                          databayi.append(indeks)
