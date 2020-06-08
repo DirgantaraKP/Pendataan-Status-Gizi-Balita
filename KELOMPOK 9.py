@@ -278,7 +278,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                             
+                             break                                 
                 elif usia >=60:
                     print("--------------------")
                     print("Maaf bayi anda tidak termasuk bayi balita.")
