@@ -420,7 +420,8 @@ def databalita():
                      ]
             median = 0
             for median in datamedian_perempuan:
-                 if usia in median:
+                 us = ([median][0][0])
+                 if usia == us:                     
                      bb = float(input("Berapa berat bayi?(kg): "))
                      databayi.append(f"{bb} kg")
                      if bb>median[2]:
@@ -516,9 +517,31 @@ def databalita():
                              databayi.append('Gizi Normal')  
                              status = 'Gizi Normal'                         
                              break
-                 elif usia >= 60:
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
-                    databayi.append('Bukan bayi balita')
+                 elif usia > 60:
+                    bb = 'None'
+                    databayi.append(bb)
+                    print("--------------------")
+                    print("Maaf anak anda bukan termasuk balita.")
+                    print(f"Usia anak anda adalah {usiatahun} tahun")
+                    indeks = ('None')
+                    status =('None')
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    break
+                
+                 elif usia < 0:                     
+                    usia = 'Usia undefined'
+                    bb= 'None'
+                    indeks = 'None'
+                    status = 'None'
+                    databayi.append(usia)
+                    databayi.append(bb)                    
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    
+                    print('')
+                    print('Ada yang salah pada tanggal.')
+                    print('Mohon inputkan tanggal dengan benar')
                     break
         else:
             print("Mohon memasukkan jenis kelamin yang sesuai")                        
