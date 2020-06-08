@@ -47,8 +47,10 @@ q8.pack()
 
 root.mainloop()
 
-#dictionaryglobal
+
+#dictionary untuk menyimpan input an dalam list
 datagizi = {}
+#dictionary untuk membentuk csv
 datagizicsv = {}
 
         
@@ -57,35 +59,37 @@ def databalita():
     #berfungsi menentukan kebenaran untuk menjalankan pengulangan
     identitas = True
     
-    while identitas:
-        
+    while identitas:        
         #list untuk menampung data bayi
         databayi = []
-        nama = str(input("Tuliskan nama bayi: "))
+        nama = (input("Tuliskan nama anak: "))
         databayi.append(nama)
-        jenis_kelamin=(str(input("1). Laki-Laki\n2). Perempuan\nJenis Kelamin: ")))         
+        #str() berfungsi mengubah angka 1 dan 2 menjadi string
+        jenis_kelamin=str(input("1). Laki-Laki\n2). Perempuan\n(Input dengan angka)\nJenis Kelamin: "))         
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
+            #variabel ini berfungsi saat penulisan csv
+            jk= 'Laki-Laki'
             #fungsi pengolahan usia dari waktu pendataan realtime 
-            tanggal= True
-            while tanggal:   
-                tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
-                tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
-                else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
-       
-                tgl_lahir=(f"{tgl}-{bln}-{thn}")
-                databayi.append(tgl_lahir)
-   
+            tanggaldata = datetime.datetime.now() 
+            print("")
+            print("Inputkan tanggal lahir anak.\n\t-Program ini hanya berlaku untuk balita.\n\t-Input sesuai perintah berupa angka")   
+            print("")
+            tgl= int(input("Tanggal(1-31): "))
+            if 1<= tgl <=31:
+                bln= int(input("Bulan(1-12): "))
+                if 1<= bln <=12:                    
+                        thn= int(input("Tahun(ex.2019): "))                        
+                else:  
+                     print("")
+                     print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     print("")
+                     break  
+            else:
+                print("")
+                print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                print("")
+                break   
    
                 yearvalue = tanggaldata.year
                 monthvalue = tanggaldata.month
