@@ -279,11 +279,17 @@ def databalita():
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
                              break                                 
-                elif usia >=60:
+                elif usia >60: 
+                    bb = ('None')
+                    databayi.append(bb)
                     print("--------------------")
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
-                    databayi.append('Bukan bayi balita')
-                    break                
+                    print("Maaf anak anda bukan termasuk balita.")
+                    print(f"Usia anak anda adalah {usiatahun} tahun")
+                    indeks = ('None')
+                    status =('None')
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    break              
                
         #pendataan bayi perempuan
         elif jenis_kelamin == ("2"):            
