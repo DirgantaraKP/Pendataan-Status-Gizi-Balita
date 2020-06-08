@@ -544,9 +544,11 @@ def databalita():
                     print('Mohon inputkan tanggal dengan benar')
                     break
         else:
-            print("Mohon memasukkan jenis kelamin yang sesuai")                        
-        #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
-        datagizi[nama]=databayi
+            #membersihkan layar supaya keterangan nampak dengan jelas
+            system ('cls')
+            print("Mohon memasukkan jenis kelamin yang sesuai!!")
+            print("Anda akan kembali ke menu awal.")
+            break
         
         
         #berfungsi menanyakan perulangan untuk menambah data
