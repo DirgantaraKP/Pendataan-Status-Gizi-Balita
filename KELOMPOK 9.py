@@ -289,7 +289,21 @@ def databalita():
                     status =('None')
                     databayi.append(indeks)
                     databayi.append(status)
-                    break              
+                    break 
+                elif usia < 0:
+                    usia = 'Usia undefined'
+                    bb= 'None'
+                    indeks = 'None'
+                    status = 'None'
+                    databayi.append(usia)
+                    databayi.append(bb)                    
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    
+                    print('')
+                    print('Ada yang salah pada tanggal.')
+                    print('Mohon inputkan tanggal dengan benar')
+                    break
                
         #pendataan bayi perempuan
         elif jenis_kelamin == ("2"):            
