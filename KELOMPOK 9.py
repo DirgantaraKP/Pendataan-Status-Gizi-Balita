@@ -306,23 +306,30 @@ def databalita():
                     break
                
         #pendataan bayi perempuan
-        elif jenis_kelamin == ("2"):            
-            #fungsi pengolahan usia berdasarkan tanggal
-            tanggal= True
-            while tanggal:   
-                tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Hanya balita yang lahir 5 tahun sebelum pendataan ini.")   
-                tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
-                else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
+        elif jenis_kelamin == ("2"):
+            #variabel ini berfungsi saat penulisan csv
+            jk= 'Perempuan'                      
+            #fungsi pengolahan usia dari waktu pendataan realtime 
+            tanggaldata = datetime.datetime.now() 
+            print("")
+            print("Inputkan tanggal lahir anak.\n\t-Program ini hanya berlaku untuk balita.\n\t-Input sesuai perintah berupa angka")   
+            print("")
+            tgl= int(input("Tanggal(1-31): "))
+            if 1<= tgl <=31:
+                bln= int(input("Bulan(1-12): "))
+                if 1<= bln <=12:                    
+                        thn= int(input("Tahun(ex.2019): "))
+                        
+                else:  
+                     print("")
+                     print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     print("")
+                     break  
+            else:
+                print("")
+                print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                print("")
+                break
        
                 tgl_lahir=(f"{tgl}-{bln}-{thn}")
                 databayi.append(tgl_lahir)
