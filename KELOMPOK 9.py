@@ -683,7 +683,7 @@ while True:
     print("                (1) untuk pendataan gizi bayi")    
     print("                (2) untuk cek status gizi")
     print("                (3) untuk keluar program")
-    print("            Silahkan pilih salah satu fitur: (angka)")
+    print("    Silahkan ketik salah satu fitur kemudian tekan ENTER: (angka)")
     print('                    Kelompok 9 Presents')
     print("==================================================================")
     print("           Klik ctrl + c untuk memulai ulang program")
