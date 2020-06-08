@@ -418,7 +418,7 @@ def databalita():
                      [59,15.6,18,21],
                      [60,16,18.3,21]
                      ]
-            median = 0
+            
             for median in datamedian_perempuan:
                  us = ([median][0][0])
                  if usia == us:                     
