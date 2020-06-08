@@ -8,9 +8,49 @@ Created on Sat May 30 14:14:01 2020
 
 from os import system
 import datetime
+from tkinter import *
 
-#dictionaryglobal
+root = Tk()
+q0 = Label(root, text="====================================================")
+q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI    ")
+T1 = Label(root, text="             Kelompok kami terdiri dari:             ")
+z2 = Label(root, text="                                                     ")
+T2 = Label(root, text="           1.Anggara Firmansyah  (I0319013)      ")
+T3 = Label(root, text="           2.Aulia Ba'syafira W  (I0319017)       ")
+T4 = Label(root, text="           3.Dirgantara Kusuma P (I0319026)       ")
+T5 = Label(root, text="           4.Fatimah Jihan A     (I0319035)        ")
+T6 = Label(root, text="           5.Anisa Agustina      (I0318013)         ")
+q2 = Label(root, text="                                                     ")
+q3 = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, Silahkan tutup pesan ini \nTerima Kasih   ")
+q4 = Label(root, text="                                                     ")
+q5 = Label(root, text="                                                     ")
+q6 = Label(root, text="                                                     ")
+q7 = Label(root, text="   Kelompok 9 Presents   ")
+q8 = Label(root, text="====================================================")
+
+q0.pack()
+q1.pack()
+T1.pack()
+z2.pack()
+T2.pack()
+T3.pack()
+T4.pack()
+T5.pack()
+T6.pack()
+q2.pack()
+q3.pack(fill=X)
+q4.pack()
+q5.pack()
+q6.pack()
+q7.pack()
+q8.pack()
+
+root.mainloop()
+
+
+#dictionary untuk menyimpan input an dalam list
 datagizi = {}
+#dictionary untuk membentuk csv
 datagizicsv = {}
 
         
@@ -19,53 +59,63 @@ def databalita():
     #berfungsi menentukan kebenaran untuk menjalankan pengulangan
     identitas = True
     
-    while identitas:
-        
+    while identitas:        
         #list untuk menampung data bayi
         databayi = []
-        nama = str(input("Tuliskan nama bayi: "))
+        nama = (input("Tuliskan nama anak: "))
         databayi.append(nama)
-        jenis_kelamin=(str(input("1). Laki-Laki\n2). Perempuan\nJenis Kelamin: ")))         
+        #str() berfungsi mengubah angka 1 dan 2 menjadi string
+        jenis_kelamin=str(input("1). Laki-Laki\n2). Perempuan\n(Input dengan angka)\nJenis Kelamin: "))         
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
+            #variabel ini berfungsi saat penulisan csv
+            jk= 'Laki-Laki'
             #fungsi pengolahan usia dari waktu pendataan realtime 
-            tanggal= True
-            while tanggal:   
-                tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
-                tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
-                else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
-       
-                tgl_lahir=(f"{tgl}-{bln}-{thn}")
-                databayi.append(tgl_lahir)
+            tanggaldata = datetime.datetime.now() 
+            print("")
+            print("Inputkan tanggal lahir anak.\n\t-Program ini hanya berlaku untuk balita.\n\t-Input sesuai perintah berupa angka")   
+            print("")
+            tgl= int(input("Tanggal(1-31): "))
+            if 1<= tgl <=31:
+                bln= int(input("Bulan(1-12): "))
+                if 1<= bln <=12:                    
+                        thn= int(input("Tahun(ex.2019): "))                        
+                else:  
+                     print("")
+                     print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     print("")
+                     break  
+            else:
+                print("")
+                print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                print("")
+                break   
    
+
+            tgl_lahir=(f"{tgl}/{bln}/{thn}")
+            databayi.append(tgl_lahir)
    
-                yearvalue = tanggaldata.year
-                monthvalue = tanggaldata.month
-                dayvalue = tanggaldata.day
-                tgl_data= (f"{dayvalue}-{monthvalue}-{yearvalue}")
-                databayi.append(tgl_data)
-    
-                dhari = dayvalue - tgl
-                if dhari >= 15:
-                    dhari = 1
-                else:
-                    dhari = 0
-                dbulan= monthvalue - bln
-                dtahun= (yearvalue - thn)*12
-                total= dhari + dtahun + dbulan
-                usia= total               
-                databayi.append(f"{usia} bulan")
-                break
+                      
+            yearvalue = tanggaldata.year
+            monthvalue = tanggaldata.month
+            dayvalue = tanggaldata.day
+            tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
+            databayi.append(tgl_data)
+            #berfungsi untuk pembulatan hari usia
+            dhari = dayvalue - tgl
+            if dhari >= 15:
+                dhari = 1
+            elif 0<=dhari<15:
+                dhari = 0
+            else:
+                dhari = -1
+            dbulan= monthvalue - bln
+            dtahun= (yearvalue - thn)*12
+            total=(dhari + dtahun + dbulan)
+            usia= total            
+            usiatahun = round((total/12),1)              
+            databayi.append(f"{usia} bulan")
+                                             
             databayi.append('Laki-Laki')            
             datamedian_laki= [
         [0,2.9,3.3,3.9],
@@ -128,12 +178,11 @@ def databalita():
         [57,15.6,17.8,20.4],
         [58,15.8,18,20.6],
         [59,15.9,18.2,20.8],
-        [60,16,18.3,21]
-        ]
-            
-            median=0
+        [60,16,18.3,21]        
+        ]   
             for median in datamedian_laki:
-                if usia in median:
+                us = ([median][0][0])
+                if usia == us:
                     bb = float(input("Berapa berat bayi?(kg): "))
                     databayi.append(f"{bb} kg")                   
                     if bb>median[2]:
@@ -166,7 +215,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                          
+                             break                                           
                     elif bb<median[2]:
                          indeks = round((bb - median[2])/(median[2] - median[1]),2)
                          databayi.append(indeks)
@@ -197,7 +246,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                             
+                             break                                       
                     else:
                          
                          indeks = round((bb - median[2])/(median[2]),2)
@@ -229,53 +278,82 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                             
-                elif usia >=60:
+                             break                                 
+                elif usia >60: 
+                    bb = ('None')
+                    databayi.append(bb)
                     print("--------------------")
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
-                    databayi.append('Bukan bayi balita')
-                    break                
+                    print("Maaf anak anda bukan termasuk balita.")
+                    print(f"Usia anak anda adalah {usiatahun} tahun")
+                    indeks = ('None')
+                    status =('None')
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    break 
+                elif usia < 0:
+                    usia = 'Usia undefined'
+                    bb= 'None'
+                    indeks = 'None'
+                    status = 'None'
+                    databayi.append(usia)
+                    databayi.append(bb)                    
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    
+                    print('')
+                    print('Ada yang salah pada tanggal.')
+                    print('Mohon inputkan tanggal dengan benar')
+                    break
                
         #pendataan bayi perempuan
-        elif jenis_kelamin == ("2"):            
-            #fungsi pengolahan usia berdasarkan tanggal
-            tanggal= True
-            while tanggal:   
-                tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Hanya balita yang lahir 5 tahun sebelum pendataan ini.")   
-                tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
-                else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
-       
-                tgl_lahir=(f"{tgl}-{bln}-{thn}")
-                databayi.append(tgl_lahir)
-   
-   
-                yearvalue = tanggaldata.year
-                monthvalue = tanggaldata.month
-                dayvalue = tanggaldata.day
-                tgl_data = (f"{dayvalue}-{monthvalue}-{yearvalue}")
-                databayi.append(tgl_data)
-    
-                dhari = dayvalue - tgl
-                if dhari >= 15:
-                    dhari = 1
-                else:
-                    dhari = 0
-                dbulan= monthvalue - bln
-                dtahun= (yearvalue - thn)*12
-                total= dhari + dtahun + dbulan
-                usia= total               
-                databayi.append(f"{usia} bulan")
+        elif jenis_kelamin == ("2"):
+            #variabel ini berfungsi saat penulisan csv
+            jk= 'Perempuan'                      
+            #fungsi pengolahan usia dari waktu pendataan realtime 
+            tanggaldata = datetime.datetime.now() 
+            print("")
+            print("Inputkan tanggal lahir anak.\n\t-Program ini hanya berlaku untuk balita.\n\t-Input sesuai perintah berupa angka")   
+            print("")
+            tgl= int(input("Tanggal(1-31): "))
+            if 1<= tgl <=31:
+                bln= int(input("Bulan(1-12): "))
+                if 1<= bln <=12:                    
+                        thn= int(input("Tahun(ex.2019): "))
+                        
+                else:  
+                     print("")
+                     print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     print("")
+                     break  
+            else:
+                print("")
+                print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                print("")
                 break
+       
+            tgl_lahir=(f"{tgl}/{bln}/{thn}")
+            databayi.append(tgl_lahir)
+   
+                      
+            yearvalue = tanggaldata.year
+            monthvalue = tanggaldata.month
+            dayvalue = tanggaldata.day
+            tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
+            databayi.append(tgl_data)
+            #berfungsi untuk pembulatan hari usia
+            dhari = dayvalue - tgl
+            if dhari >= 15:
+                dhari = 1
+            elif 0<=dhari<15:
+                dhari = 0
+            else:
+                dhari = -1
+            dbulan= monthvalue - bln
+            dtahun= (yearvalue - thn)*12
+            total= (dhari + dtahun + dbulan)
+            usia= total          
+            usiatahun = round((total/12),1)              
+            databayi.append(f"{usia} bulan")
             databayi.append('Perempuan')                         
             datamedian_perempuan = [
                      [0,2.8,3.2,3.7],
@@ -338,11 +416,12 @@ def databalita():
                      [57,15.3,17.7,20.6],
                      [58,15.5,17.9,20.8],
                      [59,15.6,18,21],
-                     [60,15.8,18.2,21.2],
+                     [60,16,18.3,21]
                      ]
             median = 0
             for median in datamedian_perempuan:
-                 if usia in median:
+                 us = ([median][0][0])
+                 if usia == us:                     
                      bb = float(input("Berapa berat bayi?(kg): "))
                      databayi.append(f"{bb} kg")
                      if bb>median[2]:
@@ -438,64 +517,155 @@ def databalita():
                              databayi.append('Gizi Normal')  
                              status = 'Gizi Normal'                         
                              break
-                 elif usia >= 60:
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
-                    databayi.append('Bukan bayi balita')
+                 elif usia > 60:
+                    bb = 'None'
+                    databayi.append(bb)
+                    print("--------------------")
+                    print("Maaf anak anda bukan termasuk balita.")
+                    print(f"Usia anak anda adalah {usiatahun} tahun")
+                    indeks = ('None')
+                    status =('None')
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    break
+                
+                 elif usia < 0:                     
+                    usia = 'Usia undefined'
+                    bb= 'None'
+                    indeks = 'None'
+                    status = 'None'
+                    databayi.append(usia)
+                    databayi.append(bb)                    
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    
+                    print('')
+                    print('Ada yang salah pada tanggal.')
+                    print('Mohon inputkan tanggal dengan benar')
                     break
         else:
-            print("Mohon memasukkan jenis kelamin yang sesuai")                        
-        #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
-        datagizi[nama]=databayi
-        
-        
-        #berfungsi menanyakan perulangan untuk menambah data
-        print("----------------")
-        print("")
-        print("Apakah ada yang perlu di inputkan lagi?")
-        print("1). Ada\n2). Tidak Ada")
-        ulang = input("# ")
-        if ulang == ("1"):
-            identitas = True
-        elif ulang == ("2"):
-            identitas = False
-        else:
-            print("Input anda salah!!\nMohon masukkan angka berdasarkan pilihan di atas")
+            #membersihkan layar supaya keterangan nampak dengan jelas
+            system ('cls')
+            print("Mohon memasukkan jenis kelamin yang sesuai!!")
+            print("Anda akan kembali ke menu awal.")
             break
+        
         import csv
         import os
         header=['NAMA', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
         
         with open('datagizi.csv','a', newline='\n') as filecsv:
-            datagizicsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jenis_kelamin, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
-            
+            datagizibalitacsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jk, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
+        
             writer = csv.DictWriter(filecsv, fieldnames = header)
             if os.stat('datagizi.csv').st_size == 0:
-                writer.writeheader()  
+                writer.writeheader()                 
+            else:
+                None  
+            if usia == us:
+                writer.writerow(datagizibalitacsv) 
             else:
                 None
-            writer.writerow(datagizicsv)    
+                
+        #berfungsi menanyakan perulangan untuk menambah data
+        print("----------------")
+        print("")
+        print("Apakah ada yang perlu di inputkan lagi?\n(Input dengan angka)")
+        print("1). Ada\n2). Tidak Ada")
+        ulang = str(input("# "))
+        if ulang == ("1"):
+            system ('cls')
+            #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
+            datagizi[nama]=databayi
+                
+            identitas = True
+            
+        elif ulang == ("2"):
+            system ('cls')
+            #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
+            datagizi[nama]=databayi
+            identitas = False
+        
+        else:
+            datagizi[nama]=databayi
+            print("========================")
+            print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nDATA YANG ANDA INPUT SEBELUMNYA TELAH TERSIMPAN")
+            print('')
+            break   
             
 #fungsi cek data berdasarkan nama            
 def datanama():
     namabayi = True
     
     while namabayi:
-        ceknama = str(input("Tuliskan nama bayi anda: "))
+        ceknama = str(input("Tuliskan nama anak anda: "))
         if ceknama in datagizi:
-            print(datagizi[ceknama][0])
-            print(datagizi[ceknama][6])
-            print(datagizi[ceknama][7])
+            root = Tk()
+            nama= f"Nama         \t:{datagizi[ceknama][0]}."
+            Label(root,
+                      text=nama,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            tgllahir= f"Tanggal Lahir\t:{datagizi[ceknama][1]}."
+            Label(root,
+                      text=tgllahir,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            tgldata= f"Tanggal Data \t:{datagizi[ceknama][2]}."
+            Label(root,
+                      text=tgldata,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            jenis= f"Jenis Kelamin\t:{datagizi[ceknama][4]}."
+            Label(root,
+                      text=jenis,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            usia= f"Usia(bln)    \t:{datagizi[ceknama][3]}."
+            Label(root,
+                      text=usia,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            bb= f"BB(kg)       \t:{datagizi[ceknama][5]}." 
+            Label(root,
+                      text=bb,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            indeks= f"Indeks       \t:{datagizi[ceknama][6]}."
+            Label(root,
+                      text=indeks,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            status= f"Status       \t:{datagizi[ceknama][7]}."
+            Label(root,
+                      text=status,
+                      fg = "red",
+                      font = "Times 30 bold").pack()
+            last = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, silahkan tutup pesan ini \nTerima Kasih   ")
+            last.pack(fill=X)
+            root.mainloop()
+        
         else:
-            print("Maaf,nama bayi tidak tersedia.")
+            root=Tk()
+            word = "Maaf,nama anak tidak tersedia."
+            selain = Label(root,text = word,fg = 'red', font = 'Times 30 bold')
+            selain.pack()
+            root.mainloop()
+            
         print("----------------")
         print("")
-        print("Apakah ingin cek lagi?")
+        print("Apakah ingin cek lagi?\n(Input dengan angka)")
         print("1). Ya\n2). Tidak")
-        ulang = input("# ")
+        ulang = str(input("# "))
         if ulang == ("1"):
             namabayi = True
+        elif ulang == ("2"):
+            namabayi = False
         else:
-            namabayi = False      
+            print("========================")
+            print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
+            print('')
+            break      
             
         
 while True:
@@ -519,14 +689,27 @@ while True:
     print("           Klik ctrl + c untuk memulai ulang program")
     print("==================================================================")
     
-    start = input("# ")
+    start = str(input("# "))
     if start== ("1"):
         system ("cls")
         databalita()
     elif start== ("2"):
         system ("cls")
         datanama()
+    elif start == ("3"):
+        
+        root = Tk()
+        p0 = Label(root, text="PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")
+        p3 = Label(root, bg="red", fg="white", text="     Untuk menutup program, Silahkan close('X') pesan ini \nTerima Kasih   ")
+        p0.pack()
+        p3.pack(fill=X)
+        
+        root.mainloop()
+        
+        break    
     else:
         system ("cls")
-        print("PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")   
+        print("INPUT SALAH")
+        print("PROGRAM BERHENTI")   
+        print("SILAHKAN MULAI ULANG PROGRAM KEMBALI")
         break
