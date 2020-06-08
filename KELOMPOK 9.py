@@ -598,22 +598,74 @@ def datanama():
     namabayi = True
     
     while namabayi:
-        ceknama = str(input("Tuliskan nama bayi anda: "))
+        ceknama = str(input("Tuliskan nama anak anda: "))
         if ceknama in datagizi:
-            print(datagizi[ceknama][0])
-            print(datagizi[ceknama][6])
-            print(datagizi[ceknama][7])
+            root = Tk()
+            nama= f"Nama         \t:{datagizi[ceknama][0]}."
+            Label(root,
+                      text=nama,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            tgllahir= f"Tanggal Lahir\t:{datagizi[ceknama][1]}."
+            Label(root,
+                      text=tgllahir,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            tgldata= f"Tanggal Data \t:{datagizi[ceknama][2]}."
+            Label(root,
+                      text=tgldata,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            jenis= f"Jenis Kelamin\t:{datagizi[ceknama][4]}."
+            Label(root,
+                      text=jenis,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            usia= f"Usia(bln)    \t:{datagizi[ceknama][3]}."
+            Label(root,
+                      text=usia,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            bb= f"BB(kg)       \t:{datagizi[ceknama][5]}." 
+            Label(root,
+                      text=bb,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            indeks= f"Indeks       \t:{datagizi[ceknama][6]}."
+            Label(root,
+                      text=indeks,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            status= f"Status       \t:{datagizi[ceknama][7]}."
+            Label(root,
+                      text=status,
+                      fg = "red",
+                      font = "Times 30 bold").pack()
+            last = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, silahkan tutup pesan ini \nTerima Kasih   ")
+            last.pack(fill=X)
+            root.mainloop()
+        
         else:
-            print("Maaf,nama bayi tidak tersedia.")
+            root=Tk()
+            word = "Maaf,nama anak tidak tersedia."
+            selain = Label(root,text = word,fg = 'red', font = 'Times 30 bold')
+            selain.pack()
+            root.mainloop()
+            
         print("----------------")
         print("")
-        print("Apakah ingin cek lagi?")
+        print("Apakah ingin cek lagi?\n(Input dengan angka)")
         print("1). Ya\n2). Tidak")
-        ulang = input("# ")
+        ulang = str(input("# "))
         if ulang == ("1"):
             namabayi = True
+        elif ulang == ("2"):
+            namabayi = False
         else:
-            namabayi = False      
+            print("========================")
+            print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
+            print('')
+            break      
             
         
 while True:
@@ -637,14 +689,27 @@ while True:
     print("           Klik ctrl + c untuk memulai ulang program")
     print("==================================================================")
     
-    start = input("# ")
+    start = str(input("# "))
     if start== ("1"):
         system ("cls")
         databalita()
     elif start== ("2"):
         system ("cls")
         datanama()
+    elif start == ("3"):
+        
+        root = Tk()
+        p0 = Label(root, text="PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")
+        p3 = Label(root, bg="red", fg="white", text="     Untuk menutup program, Silahkan close('X') pesan ini \nTerima Kasih   ")
+        p0.pack()
+        p3.pack(fill=X)
+        
+        root.mainloop()
+        
+        break    
     else:
         system ("cls")
-        print("PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")   
+        print("INPUT SALAH")
+        print("PROGRAM BERHENTI")   
+        print("SILAHKAN MULAI ULANG PROGRAM KEMBALI")
         break
