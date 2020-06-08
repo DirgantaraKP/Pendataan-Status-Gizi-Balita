@@ -550,33 +550,23 @@ def databalita():
             print("Anda akan kembali ke menu awal.")
             break
         
-        
-        #berfungsi menanyakan perulangan untuk menambah data
-        print("----------------")
-        print("")
-        print("Apakah ada yang perlu di inputkan lagi?")
-        print("1). Ada\n2). Tidak Ada")
-        ulang = input("# ")
-        if ulang == ("1"):
-            identitas = True
-        elif ulang == ("2"):
-            identitas = False
-        else:
-            print("Input anda salah!!\nMohon masukkan angka berdasarkan pilihan di atas")
-            break
         import csv
         import os
         header=['NAMA', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
         
         with open('datagizi.csv','a', newline='\n') as filecsv:
-            datagizicsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jenis_kelamin, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
-            
+            datagizibalitacsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jk, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
+        
             writer = csv.DictWriter(filecsv, fieldnames = header)
             if os.stat('datagizi.csv').st_size == 0:
-                writer.writeheader()  
+                writer.writeheader()                 
+            else:
+                None  
+            if usia == us:
+                writer.writerow(datagizibalitacsv) 
             else:
                 None
-            writer.writerow(datagizicsv)    
+           
             
 #fungsi cek data berdasarkan nama            
 def datanama():
