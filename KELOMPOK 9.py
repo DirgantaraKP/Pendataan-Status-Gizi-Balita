@@ -246,7 +246,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                             
+                             break                                       
                     else:
                          
                          indeks = round((bb - median[2])/(median[2]),2)
