@@ -566,7 +566,32 @@ def databalita():
                 writer.writerow(datagizibalitacsv) 
             else:
                 None
-           
+                
+        #berfungsi menanyakan perulangan untuk menambah data
+        print("----------------")
+        print("")
+        print("Apakah ada yang perlu di inputkan lagi?\n(Input dengan angka)")
+        print("1). Ada\n2). Tidak Ada")
+        ulang = str(input("# "))
+        if ulang == ("1"):
+            system ('cls')
+            #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
+            datagizi[nama]=databayi
+                
+            identitas = True
+            
+        elif ulang == ("2"):
+            system ('cls')
+            #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
+            datagizi[nama]=databayi
+            identitas = False
+        
+        else:
+            datagizi[nama]=databayi
+            print("========================")
+            print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nDATA YANG ANDA INPUT SEBELUMNYA TELAH TERSIMPAN")
+            print('')
+            break   
             
 #fungsi cek data berdasarkan nama            
 def datanama():
