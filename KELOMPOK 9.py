@@ -179,7 +179,7 @@ def databalita():
         [58,15.8,18,20.6],
         [59,15.9,18.2,20.8],
         [60,16,18.3,21]        
-            ]
+        ]   
              for median in datamedian_laki:
                 us = ([median][0][0])
                 if usia == us:
