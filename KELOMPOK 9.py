@@ -180,7 +180,7 @@ def databalita():
         [59,15.9,18.2,20.8],
         [60,16,18.3,21]        
         ]   
-             for median in datamedian_laki:
+            for median in datamedian_laki:
                 us = ([median][0][0])
                 if usia == us:
                     bb = float(input("Berapa berat bayi?(kg): "))
