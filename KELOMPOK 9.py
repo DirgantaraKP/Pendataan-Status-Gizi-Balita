@@ -91,23 +91,31 @@ def databalita():
                 print("")
                 break   
    
-                yearvalue = tanggaldata.year
-                monthvalue = tanggaldata.month
-                dayvalue = tanggaldata.day
-                tgl_data= (f"{dayvalue}-{monthvalue}-{yearvalue}")
-                databayi.append(tgl_data)
-    
-                dhari = dayvalue - tgl
-                if dhari >= 15:
-                    dhari = 1
-                else:
-                    dhari = 0
-                dbulan= monthvalue - bln
-                dtahun= (yearvalue - thn)*12
-                total= dhari + dtahun + dbulan
-                usia= total               
-                databayi.append(f"{usia} bulan")
-                break
+
+            tgl_lahir=(f"{tgl}/{bln}/{thn}")
+            databayi.append(tgl_lahir)
+   
+                      
+            yearvalue = tanggaldata.year
+            monthvalue = tanggaldata.month
+            dayvalue = tanggaldata.day
+            tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
+            databayi.append(tgl_data)
+            #berfungsi untuk pembulatan hari usia
+            dhari = dayvalue - tgl
+            if dhari >= 15:
+                dhari = 1
+            elif 0<=dhari<15:
+                dhari = 0
+            else:
+                dhari = -1
+            dbulan= monthvalue - bln
+            dtahun= (yearvalue - thn)*12
+            total=(dhari + dtahun + dbulan)
+            usia= total            
+            usiatahun = round((total/12),1)              
+            databayi.append(f"{usia} bulan")
+                                             
             databayi.append('Laki-Laki')            
             datamedian_laki= [
         [0,2.9,3.3,3.9],
@@ -170,7 +178,7 @@ def databalita():
         [57,15.6,17.8,20.4],
         [58,15.8,18,20.6],
         [59,15.9,18.2,20.8],
-        [60,16,18.3,21]
+        [60,16,18.3,21]        
         ]
             
             median=0
