@@ -2,11 +2,11 @@
 Program yang melakukan perhitungan nilai gizi serta menampilkan status gizi  pada balita
 
 Anggota:
-1.)Anggara Firmansyah  (I0319013)
-2.)Aulia Ba'syafira W  (I0319017)
-3.)Dirgantara Kusuma P (I0319026)
-4.)Fatimah Jihan A     (I0319035)
-5.)Anisa Agustina      (I0318013)
+1.) Anggara Firmansyah  (I0319013).
+2.) Aulia Ba'syafira W  (I0319017).
+3.) Dirgantara Kusuma P (I0319026).
+4.) Fatimah Jihan A     (I0319035).
+5.) Anisa Agustina      (I0318013).
 
 FUTURE
 
