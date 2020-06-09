@@ -7,6 +7,9 @@ Anggota kelompok 9:
 3. Dirgantara Kusuma P (I0319026)
 4. Fatimah Jihan A     (I0319035)
 5. Anisa Agustina      (I0318013)
+
+Untuk menguji program kami mohon unduh file datagizi.csv terlebih dahulu atau langsung menguji pada fitur 1 dahulu.
+Fitur 3 tidak bisa dijalankan apabila belum terbentuk file CSV/belum menjalankan fitur 1
  
 
 
@@ -24,6 +27,7 @@ Apakah ada yang perlu di inputkan lagi?
 Kalau saya isi Ada dan angka 2 hasilny sama saja kembali ke menu
 
 3. Gizi itu bukanhkan bisa dihitung menggunakan rumus? kemudian nanti jika masuk dalam rentang tertentu kemudian ditentukan statusnya ? ataukah Tabel Median tersebut PATEN tanpa ada rumusnya ?
+
 JAWAB : Iya dengan rumus pak ,rumus itu sendiri masih terbagi menjadi 3 syarat(bb ><= median),setelah itu diarahkan ke suatu rentang tertentu dan keluar hasil. Median sudah paten dari tabel baku WHO dan sudah menjadi ketetapan di permenkes.
 
 4. Tambahkan penyimpanan hasil input dan pengecekan gizi balita ke dalam file data_bayi_tanggal.csv (menyimpan nama, berat, dan status gizi), serta updatelah file data_tanggal.csv (menyimpan data tanggal-tanggal pernah dilakukan input dan pengecekan data gizi bayi).
