@@ -351,7 +351,7 @@ def databalita():
             print("")
             tgl= int(input("\t-Tanggal(1-31): "))
             if 1<= tgl <=31:
-                bln= int(input("\y-Bulan(1-12): "))
+                bln= int(input("\t-Bulan(1-12): "))
                 if 1<= bln <=12:                    
                         thn= int(input("\t-Tahun(ex.2019): "))
                         
