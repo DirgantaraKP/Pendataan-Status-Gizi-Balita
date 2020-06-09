@@ -78,6 +78,7 @@ def databalita():
         nama = (input("Tuliskan nama anak: "))
         databayi.append(nama)
         #str() berfungsi mengubah angka 1 dan 2 menjadi string
+        print("")
         jenis_kelamin=str(input("1). Laki-Laki\n2). Perempuan\n(Input dengan angka)\nJenis Kelamin: "))         
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
@@ -96,8 +97,8 @@ def databalita():
                 else:
                      root = Tk()
                      root.title("\tDataGizi 1.0")
-                     width = 360
-                     height = 100
+                     width = 500
+                     height = 75
                      screen_width = root.winfo_screenwidth()
                      screen_height = root.winfo_screenheight()
                      x = (screen_width / 2) - (width / 2)
@@ -113,8 +114,8 @@ def databalita():
             else:
                 root = Tk()
                 root.title("\tDataGizi 1.0")
-                width = 360
-                height = 100
+                width = 500
+                height = 75
                 screen_width = root.winfo_screenwidth()
                 screen_height = root.winfo_screenheight()
                 x = (screen_width / 2) - (width / 2)
@@ -216,6 +217,7 @@ def databalita():
             for median in datamedian_laki:
                 us = ([median][0][0])
                 if usia == us:
+                    print("")
                     bb = float(input("Berapa berat bayi?(kg): "))
                     databayi.append(f"{bb} kg")                   
                     if bb>median[2]:
@@ -356,8 +358,8 @@ def databalita():
                 else:  
                      root = Tk()
                      root.title("\tDataGizi 1.0")
-                     width = 360
-                     height = 100
+                     width = 500
+                     height = 75
                      screen_width = root.winfo_screenwidth()
                      screen_height = root.winfo_screenheight()
                      x = (screen_width / 2) - (width / 2)
@@ -372,8 +374,8 @@ def databalita():
             else:
                 root = Tk()
                 root.title("\tDataGizi 1.0")
-                width = 360
-                height = 100
+                width = 500
+                height = 75
                 screen_width = root.winfo_screenwidth()
                 screen_height = root.winfo_screenheight()
                 x = (screen_width / 2) - (width / 2)
@@ -476,7 +478,8 @@ def databalita():
             
             for median in datamedian_perempuan:
                  us = ([median][0][0])
-                 if usia == us:                     
+                 if usia == us:  
+                     print("")
                      bb = float(input("Berapa berat bayi?(kg): "))
                      databayi.append(f"{bb} kg")
                      if bb>median[2]:
