@@ -594,9 +594,20 @@ def databalita():
             system ('cls')        
             identitas = False       
         else:          
-            print("========================")
-            print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nDATA YANG ANDA INPUT SEBELUMNYA TELAH TERSIMPAN")
-            print('')
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 360
+            height = 100
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            a2=("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nDATA SEBELUMNYA TELAH TERSIMPAN.")
+            p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+            p0.pack(fill=X)       
+            root.mainloop()
             break   
             
 #fungsi cek data berdasarkan nama            
@@ -607,6 +618,15 @@ def datanama():
         ceknama = str(input("Tuliskan nama anak anda: "))
         if ceknama in datagizi:
             root = Tk()
+            root.title("\tDataGizi 1.0")     
+            width = 720
+            height = 500
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
             nama= f"Nama         \t:{datagizi[ceknama][0]}."
             Label(root,
                       text=nama,
@@ -652,6 +672,15 @@ def datanama():
             root.mainloop()   
         else:
             root=Tk()
+            root.title("\tDataGizi 1.0")
+            width=400
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
             word = "Maaf,nama anak tidak tersedia."
             selain = Label(root,text = word,fg = 'red', font = 'Times 30 bold')
             selain.pack()
@@ -667,9 +696,20 @@ def datanama():
         elif ulang == ("2"):
             namabayi = False
         else:
-            print("========================")
-            print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
-            print('')
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 360
+            height = 100
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            a2=("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
+            p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+            p0.pack(fill=X)       
+            root.mainloop()
             break   
 
 #fungsi membaca csv        
