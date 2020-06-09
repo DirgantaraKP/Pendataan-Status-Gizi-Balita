@@ -11,6 +11,7 @@ import datetime
 from tkinter import *
 import tkinter.ttk
 
+#Menambahkan fitur GUI menggunakan Tkinter
 root = Tk()
 root.title("\tDataGizi 1.0")
 width = 500
