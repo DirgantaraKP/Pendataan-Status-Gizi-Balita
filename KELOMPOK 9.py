@@ -835,10 +835,10 @@ while True:
     print("           Kami memiliki 3 fitur yang dapat digunakan")
     print("                 (1) untuk pendataan gizi bayi")    
     print("                 (2) untuk cek status gizi")
-    print("                 (3) untuk cek tabel data gizi
+    print("                 (3) untuk cek tabel data gizi")
     print("                 (4) untuk keluar program")
     print(" Silahkan ketik salah satu fitur kemudian tekan ENTER: (angka)")
-    print('                   Kelompok 9 Presents')
+    print('                    Kelompok 9 Presents')
     print("==================================================================")
     print("         Klik ctrl + c untuk memulai ulang program")
     print("==================================================================")
