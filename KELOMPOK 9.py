@@ -86,22 +86,45 @@ def databalita():
             #fungsi pengolahan usia dari waktu pendataan realtime 
             tanggaldata = datetime.datetime.now() 
             print("")
-            print("Inputkan tanggal lahir anak.\n\t-Program ini hanya berlaku untuk balita.\n\t-Input sesuai perintah berupa angka")   
+            print("Inputkan tanggal lahir anak.")   
             print("")
-            tgl= int(input("Tanggal(1-31): "))
+            tgl= int(input("\t-Tanggal(1-31): "))
             if 1<= tgl <=31:
-                bln= int(input("Bulan(1-12): "))
+                bln= int(input("\t-Bulan(1-12): "))
                 if 1<= bln <=12:                    
-                        thn= int(input("Tahun(ex.2019): "))                        
-                else:  
-                     print("")
-                     print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
-                     print("")
+                        thn= int(input("\t-Tahun(ex.2019): "))                        
+                else:
+                     root = Tk()
+                     root.title("\tDataGizi 1.0")
+                     width = 360
+                     height = 100
+                     screen_width = root.winfo_screenwidth()
+                     screen_height = root.winfo_screenheight()
+                     x = (screen_width / 2) - (width / 2)
+                     y = (screen_height / 2) - (height / 2)
+                     root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                     root.resizable(0, 0)
+                     a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                     p0.pack(fill=X)       
+                     root.mainloop()
+                    
                      break  
             else:
-                print("")
-                print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
-                print("")
+                root = Tk()
+                root.title("\tDataGizi 1.0")
+                width = 360
+                height = 100
+                screen_width = root.winfo_screenwidth()
+                screen_height = root.winfo_screenheight()
+                x = (screen_width / 2) - (width / 2)
+                y = (screen_height / 2) - (height / 2)
+                root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                root.resizable(0, 0)
+                a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                p0.pack(fill=X)       
+                root.mainloop()
                 break   
 
             tgl_lahir=(f"{tgl}/{bln}/{thn}")
@@ -322,23 +345,45 @@ def databalita():
             #fungsi pengolahan usia dari waktu pendataan realtime 
             tanggaldata = datetime.datetime.now() 
             print("")
-            print("Inputkan tanggal lahir anak.\n\t-Program ini hanya berlaku untuk balita.\n\t-Input sesuai perintah berupa angka")   
+            print("Inputkan tanggal lahir anak.")   
             print("")
-            tgl= int(input("Tanggal(1-31): "))
+            tgl= int(input("\t-Tanggal(1-31): "))
             if 1<= tgl <=31:
-                bln= int(input("Bulan(1-12): "))
+                bln= int(input("\y-Bulan(1-12): "))
                 if 1<= bln <=12:                    
-                        thn= int(input("Tahun(ex.2019): "))
+                        thn= int(input("\t-Tahun(ex.2019): "))
                         
                 else:  
-                     print("")
-                     print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
-                     print("")
+                     root = Tk()
+                     root.title("\tDataGizi 1.0")
+                     width = 360
+                     height = 100
+                     screen_width = root.winfo_screenwidth()
+                     screen_height = root.winfo_screenheight()
+                     x = (screen_width / 2) - (width / 2)
+                     y = (screen_height / 2) - (height / 2)
+                     root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                     root.resizable(0, 0)
+                     a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                     p0.pack(fill=X)       
+                     root.mainloop()
                      break  
             else:
-                print("")
-                print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
-                print("")
+                root = Tk()
+                root.title("\tDataGizi 1.0")
+                width = 360
+                height = 100
+                screen_width = root.winfo_screenwidth()
+                screen_height = root.winfo_screenheight()
+                x = (screen_width / 2) - (width / 2)
+                y = (screen_height / 2) - (height / 2)
+                root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                root.resizable(0, 0)
+                a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                p0.pack(fill=X)       
+                root.mainloop()
                 break
        
             tgl_lahir=(f"{tgl}/{bln}/{thn}")
@@ -785,13 +830,14 @@ while True:
     print("         Data yang diinput akan masuk ke dalam file csv.")
     print("===================================================================")
     print("           Kami memiliki 3 fitur yang dapat digunakan")
-    print("                (1) untuk pendataan gizi bayi")    
-    print("                (2) untuk cek status gizi")
-    print("                (3) untuk cek tabel data gizi/n(4) untuk keluar program")
-    print("    Silahkan ketik salah satu fitur kemudian tekan ENTER: (angka)")
-    print('                    Kelompok 9 Presents')
+    print("                 (1) untuk pendataan gizi bayi")    
+    print("                 (2) untuk cek status gizi")
+    print("                 (3) untuk cek tabel data gizi
+    print("                 (4) untuk keluar program")
+    print(" Silahkan ketik salah satu fitur kemudian tekan ENTER: (angka)")
+    print('                   Kelompok 9 Presents')
     print("==================================================================")
-    print("           Klik ctrl + c untuk memulai ulang program")
+    print("         Klik ctrl + c untuk memulai ulang program")
     print("==================================================================")
     
     start = str(input("# "))
