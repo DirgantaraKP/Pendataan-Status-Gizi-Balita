@@ -9,23 +9,39 @@ Created on Sat May 30 14:14:01 2020
 from os import system
 import datetime
 from tkinter import *
+import tkinter.ttk
 
 root = Tk()
+root.title("\tDataGizi 1.0")
+width = 500
+height = 360
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width / 2) - (width / 2)
+y = (screen_height / 2) - (height / 2)
+root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+root.resizable(0, 0)
 q0 = Label(root, text="====================================================")
-q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI    ")
-T1 = Label(root, text="             Kelompok kami terdiri dari:             ")
-z2 = Label(root, text="                                                     ")
-T2 = Label(root, text="           1.Anggara Firmansyah  (I0319013)      ")
-T3 = Label(root, text="           2.Aulia Ba'syafira W  (I0319017)       ")
-T4 = Label(root, text="           3.Dirgantara Kusuma P (I0319026)       ")
-T5 = Label(root, text="           4.Fatimah Jihan A     (I0319035)        ")
-T6 = Label(root, text="           5.Anisa Agustina      (I0318013)         ")
+q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI", font='Gungsuh 12')
+T1 = Label(root, text="Kelompok kami terdiri dari:", font='Gungsuh 12')
+T1.place(x= width/2, y= height/2)
+z2 = Label(root, text="                                                      ")
+T2 = Label(root, text="1.Anggara Firmansyah\t(I0319013)",font='Gungsuh 12')
+T2.place(x= width/2 + 2, y= height/2)
+T3 = Label(root, text="2.Aulia Ba'syafira W\t(I0319017)",font='Gungsuh 12')
+T3.place(x= width/2, y= height/2)
+T4 = Label(root, text="3.Dirgantara Kusuma P\t(I0319026)",font='Gungsuh 12')
+T4.place(x= width/2 + 2, y= height/2)
+T5 = Label(root, text="4.Fatimah Jihan A\t\t(I0319035)",font='Gungsuh 12')
+T5.place(x= width/2, y= height/2)
+T6 = Label(root, text="5.Anisa Agustina\t\t(I0318013)",font='Gungsuh 12')
+T6.place(x= width/2, y= height/2)
 q2 = Label(root, text="                                                     ")
-q3 = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, Silahkan tutup pesan ini \nTerima Kasih   ")
+q3 = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, klik tombol close ('X')   ",font='Gungsuh 12')
 q4 = Label(root, text="                                                     ")
 q5 = Label(root, text="                                                     ")
 q6 = Label(root, text="                                                     ")
-q7 = Label(root, text="   Kelompok 9 Presents   ")
+q7 = Label(root, text="    Created by Kelompok 9   ",font='Gungsuh 12')
 q8 = Label(root, text="====================================================")
 
 q0.pack()
@@ -44,21 +60,17 @@ q5.pack()
 q6.pack()
 q7.pack()
 q8.pack()
-
 root.mainloop()
-
 
 #dictionary untuk menyimpan input an dalam list
 datagizi = {}
 #dictionary untuk membentuk csv
 datagizicsv = {}
-
         
 #fungsipendataanbayi
 def databalita():
     #berfungsi menentukan kebenaran untuk menjalankan pengulangan
-    identitas = True
-    
+    identitas = True    
     while identitas:        
         #list untuk menampung data bayi
         databayi = []
@@ -90,12 +102,9 @@ def databalita():
                 print("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
                 print("")
                 break   
-   
 
             tgl_lahir=(f"{tgl}/{bln}/{thn}")
-            databayi.append(tgl_lahir)
-   
-                      
+            databayi.append(tgl_lahir)                    
             yearvalue = tanggaldata.year
             monthvalue = tanggaldata.month
             dayvalue = tanggaldata.day
