@@ -559,6 +559,11 @@ def databalita():
             print("Anda akan kembali ke menu awal.")
             break
         
+        
+        #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
+        datagizi[nama]=databayi
+        
+        #berfungsi menulis csv
         import csv
         import os
         header=['NAMA', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
@@ -583,20 +588,12 @@ def databalita():
         print("1). Ada\n2). Tidak Ada")
         ulang = str(input("# "))
         if ulang == ("1"):
-            system ('cls')
-            #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
-            datagizi[nama]=databayi
-                
-            identitas = True
-            
+            system ('cls')    
+            identitas = True            
         elif ulang == ("2"):
-            system ('cls')
-            #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
-            datagizi[nama]=databayi
-            identitas = False
-        
-        else:
-            datagizi[nama]=databayi
+            system ('cls')        
+            identitas = False       
+        else:          
             print("========================")
             print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nDATA YANG ANDA INPUT SEBELUMNYA TELAH TERSIMPAN")
             print('')
@@ -652,8 +649,7 @@ def datanama():
                       font = "Times 30 bold").pack()
             last = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, silahkan tutup pesan ini \nTerima Kasih   ")
             last.pack(fill=X)
-            root.mainloop()
-        
+            root.mainloop()   
         else:
             root=Tk()
             word = "Maaf,nama anak tidak tersedia."
