@@ -670,9 +670,68 @@ def datanama():
             print("========================")
             print("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
             print('')
-            break      
-            
-        
+            break   
+
+#fungsi membaca csv        
+def baca():
+    
+    import tkinter.ttk as ttk
+    import csv
+
+    root = Tk()
+    root.title("Tabel Data Gizi Balita")
+    width = 720
+    height = 400
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x = (screen_width / 2) - (width / 2)
+    y = (screen_height / 2) - (height / 2)
+    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+    root.resizable(0, 0)
+
+    TableMargin = Frame(root, width=720)
+    TableMargin.pack(side=TOP)
+
+    scrollbarx = Scrollbar(TableMargin, orient=HORIZONTAL)
+    scrollbary = Scrollbar(TableMargin, orient=VERTICAL)
+    tree = ttk.Treeview(TableMargin, columns=("NAMA", "TANGGAL LAHIR", "TANGGAL DATA",'USIA','JENIS KELAMIN','BB','INDEKS GIZI','STATUS GIZI'), height=400, selectmode="extended",
+                        yscrollcommand=scrollbary.set, xscrollcommand=scrollbarx.set)
+    scrollbary.config(command=tree.yview)
+    scrollbary.pack(side=RIGHT, fill=Y)
+    scrollbarx.config(command=tree.xview)
+    scrollbarx.pack(side=BOTTOM, fill=X)
+    tree.heading('NAMA', text="NAMA", anchor=W)
+    tree.heading('TANGGAL LAHIR', text="TANGGAL LAHIR", anchor=W)
+    tree.heading('TANGGAL DATA', text="TANGGAL DATA", anchor=W)
+    tree.heading('USIA', text="USIA (bulan)", anchor=W)
+    tree.heading('JENIS KELAMIN', text="JENIS KELAMIN", anchor=W)
+    tree.heading('BB', text="BB (kg)", anchor=W)
+    tree.heading('INDEKS GIZI', text="INDEKS GIZI", anchor=W)
+    tree.heading('STATUS GIZI', text="STATUS GIZI", anchor=W)
+    tree.column('#0', stretch=NO, minwidth=0, width=0)
+    tree.column('#1', stretch=NO, minwidth=0, width=120)
+    tree.column('#2', stretch=NO, minwidth=0, width=120)
+    tree.column('#3', stretch=NO, minwidth=0, width=120)  
+    tree.column('#4', stretch=NO, minwidth=0, width=120)
+    tree.column('#5', stretch=NO, minwidth=0, width=120)
+    tree.column('#6', stretch=NO, minwidth=0, width=120)
+    tree.column('#6', stretch=NO, minwidth=0, width=120)    
+    tree.pack()
+
+    with open('datagizi.csv') as f:
+      reader = csv.DictReader(f, delimiter=',')
+      for row in reader:
+        nama = row['NAMA']
+        tl = row['TANGGAL LAHIR']
+        dt = row['TANGGAL DATA']
+        u = row['USIA']
+        jk = row['JENIS KELAMIN']
+        bb = row['BB(kg)']
+        i = row['INDEKS']
+        st = row['STATUS GIZI']
+        tree.insert("", 0, values=(nama,tl,dt,u,jk,bb,i,st))
+    root.mainloop()
+                   
 while True:
     system ('cls')
     print("===================================================================")
@@ -687,7 +746,7 @@ while True:
     print("           Kami memiliki 3 fitur yang dapat digunakan")
     print("                (1) untuk pendataan gizi bayi")    
     print("                (2) untuk cek status gizi")
-    print("                (3) untuk keluar program")
+    print("                (3) untuk cek tabel data gizi/n(4) untuk keluar program")
     print("    Silahkan ketik salah satu fitur kemudian tekan ENTER: (angka)")
     print('                    Kelompok 9 Presents')
     print("==================================================================")
@@ -701,16 +760,22 @@ while True:
     elif start== ("2"):
         system ("cls")
         datanama()
-    elif start == ("3"):
-        
+    elif start== ("3"):
+        baca()
+    elif start == ("4"):
         root = Tk()
-        p0 = Label(root, text="PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")
-        p3 = Label(root, bg="red", fg="white", text="     Untuk menutup program, Silahkan close('X') pesan ini \nTerima Kasih   ")
-        p0.pack()
-        p3.pack(fill=X)
-        
+        root.title("\tDataGizi 1.0")
+        width = 360
+        height = 100
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        p0 = Label(root,font= 'Gungsuh 12', text="PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")
+        p0.pack(fill=X)       
         root.mainloop()
-        
         break    
     else:
         system ("cls")
