@@ -19,11 +19,12 @@ Berikut merupakan referensi program yang Kelompok 9 buat
    Pada penggunaan ini kami memodifikasi isi pesan saja.
 
    Sumber: https://www.tutorialspoint.com/python/tk_label.htm
+   https://www.youtube.com/watch?v=RWCeiOCfIuY
 
 4. Program tentang cara mengolah grid pada tkinter.
    Pada program ini digunakan untuk menampilkan isi data CSV
    Mengkombinasikan readCSV dapat menampilkan isi data CSV yang telah diinputkan.
-   Pada bahasa ini sudah meliputi banyak aspek seperti mengolah ukuran jendela GUI, meletakkan posisi secara geometry, menentukan kemampuan resizable jendela.
+   Pada bahasa ini sudah meliputi banyak aspek seperti mengolah ukuran jendela GUI, meletakkan posisi secara geometry, menentukan          kemampuan resizable jendela.
    Kami menerapkan paket pengaturan ukuran jendela letak geometry pada semua module tkinter saat digunakan.
 
    Sumber: https://stackoverflow.com/questions/42748343/how-to-show-csv-file-in-a-grid
@@ -32,7 +33,5 @@ Berikut merupakan referensi program yang Kelompok 9 buat
    Referensi ke-5 ini berasal dari program milik Satrio Fachri.C dengan judul file "latihan13b.py"(file dilampirkan)
    Secara isi berbeda karena pada program kami memuat rumus untuk mengolah indeks dengan metode skor-Z
 
-6. Kami melampirkan program yang kami gunakan untuk 
-   percobaan dalam hal mencari cara agar dapat mengakses perulangan nilai median 
-   sesuai dengan usia.
+
    	
