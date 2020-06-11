@@ -36,7 +36,7 @@ T1 = Label(root, text="Kelompok kami terdiri dari:", font='Gungsuh 12')
 T1.place(x= width/2, y= height/2)
 z2 = Label(root, text="                                                      ")
 
-T2 = Label(root, text="1.Anggara Firmansyah\t(I0319013)",font='Gungsuh 12')
+T2 = Label(root, text="1.Anggara Firmansyah\t(I0319012)",font='Gungsuh 12')
 T2.place(x= width/2, y= height/2)
 T3 = Label(root, text="2.Aulia Ba'syafira W\t\t(I0319017)",font='Gungsuh 12')
 T3.place(x= width/2, y= height/2)
