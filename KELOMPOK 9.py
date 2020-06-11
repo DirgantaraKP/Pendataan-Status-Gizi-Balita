@@ -1,71 +1,200 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat May 30 14:14:01 2020
-
 @author: KELOMPOK 9 PROGKOMP
 """
 
 
 from os import system
 import datetime
+from tkinter import *
+import tkinter.ttk
+import tkinter as tk
 
-#dictionaryglobal
+
+
+
+#fungsi menutup jendela
+def close_window():    
+    root.destroy()
+#Menambahkan fitur GUI menggunakan Tkinter
+root = Tk()
+root.title("\tDataGizi 1.0")
+width = 500
+height = 360
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width / 2) - (width / 2)
+y = (screen_height / 2) - (height / 2)
+root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+root.resizable(0, 0)
+q0 = Label(root, text="====================================================")
+q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI", font='Gungsuh 12')
+T1 = Label(root, text="Kelompok kami terdiri dari:", font='Gungsuh 12')
+T1.place(x= width/2, y= height/2)
+z2 = Label(root, text="                                                      ")
+T2 = Label(root, text="1.Anggara Firmansyah\t(I0319013)",font='Gungsuh 12')
+T2.place(x= width/2, y= height/2)
+T3 = Label(root, text="2.Aulia Ba'syafira W\t\t(I0319017)",font='Gungsuh 12')
+T3.place(x= width/2, y= height/2)
+T4 = Label(root, text="3.Dirgantara Kusuma P\t(I0319026)",font='Gungsuh 12')
+T4.place(x= width/2, y= height/2)
+T5 = Label(root, text="4.Fatimah Jihan A\t\t(I0319035)",font='Gungsuh 12')
+T5.place(x= width/2, y= height/2)
+T6 = Label(root, text="5.Anisa Agustina\t\t(I0318013)",font='Gungsuh 12')
+T6.place(x= width/2, y= height/2)
+q2 = Label(root, text="                                                     ")
+q3 = Label(root, bg="red", fg="white", text="Untuk melanjutkan program, klik tombol 'NEXT'",font='Gungsuh 12')
+q4 = Label(root, text="                                                     ")
+q5 = Label(root, text="                                                     ")
+q6 = Label(root, text="                                                     ")
+q7 = Label(root, text="    Created by Kelompok 9   ",font='Gungsuh 12')
+q8 = Label(root, text="====================================================")
+q0.pack()
+q1.pack()
+T1.pack()
+z2.pack()
+T2.pack()
+T3.pack()
+T4.pack()
+T5.pack()
+T6.pack()
+q2.pack()
+q3.pack()
+q4.pack()
+q5.pack()
+q6.pack()
+q7.pack()
+q8.pack()
+B = Button(root, text = "NEXT", command = close_window)
+B.pack(anchor = S)
+B.place(x= 225, y=275)
+root.mainloop()
+
+#dictionary untuk menyimpan input an dalam list
 datagizi = {}
+#dictionary untuk membentuk csv
 datagizicsv = {}
-
         
 #fungsipendataanbayi
 def databalita():
     #berfungsi menentukan kebenaran untuk menjalankan pengulangan
-    identitas = True
-    
-    while identitas:
-        
+    identitas = True    
+    while identitas:        
         #list untuk menampung data bayi
         databayi = []
-        nama = str(input("Tuliskan nama bayi: "))
+        import tkinter as tk       
+        root = tk.Tk()       
+        root.title("\tDataGizi 1.0")
+        #adalah paket pengaturan jendela
+        width = 360
+        height = 370
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        
+        namastring= tk.StringVar(root)#menunjukkan inputan adalah string
+        jkstring= tk.StringVar(root)
+        tglstring= tk.IntVar(root)#menunjukkan inputan adalah interger
+        blnstring= tk.IntVar(root)
+        thnstring= tk.IntVar(root)
+        bbstring= tk.IntVar(root)
+        def close():
+            root.destroy()
+            
+        perintah0 = Label(root,bg='red',text= "Untuk memindahkan cursor tekan (TAB)",font="Times 12 bold",).pack(pady=2)
+        
+        perintah1 = Label(root,text= "Nama anak:",font="Times 11 bold",).pack()
+        input1 = Entry(root,textvariable = namastring).pack()
+        perintah2 = Label(root,text= "Jenis kelamin anak:\n(input dengan angka)\n(1).Laki-laki\n(2).Perempuan ",font="Times 11 bold",).pack()
+        input2 = Entry(root,textvariable = jkstring).pack()
+        perintah3= Label(root,text= "Tanggal lahir(1-31):",font="Times 11 bold",).pack()
+        input3 = Entry(root,textvariable = tglstring).pack()
+        perintah4= Label(root,text= "Bulan lahir(1-12):",font="Times 11 bold",).pack()
+        input4 = Entry(root,textvariable = blnstring).pack()
+        perintah5= Label(root,text= "Tahun lahir(yyyy):",font="Times 11 bold",).pack()
+        input5 = Entry(root,textvariable = thnstring).pack()
+        perintah6= Label(root,text= "Berat badan(kg):",font="Times 11 bold",).pack()
+        input6 = Entry(root,textvariable = bbstring).pack()
+
+
+        B = Button(root, text = "SUBMIT",font = 'Arial 11', command = close)
+        B.pack(anchor = S,pady=5)
+        root.mainloop()
+        
+        nama = namastring.get()
         databayi.append(nama)
-        jenis_kelamin=(str(input("1). Laki-Laki\n2). Perempuan\nJenis Kelamin: ")))         
+        jenis_kelamin= jkstring.get()
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
+            #variabel ini berfungsi saat penulisan csv
+            jk= 'Laki-Laki'
             #fungsi pengolahan usia dari waktu pendataan realtime 
-            tanggal= True
-            while tanggal:   
-                tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Progam dapat menghasilkan hasil saat bayi lahir pada tahun 5 tahun sebelum tahun pendataan ini.")   
-                tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
+            tanggaldata = datetime.datetime.now() 
+            
+            tgl= tglstring.get()
+            if 1<= tgl <=31:
+                bln= blnstring.get()
+                if 1<= bln <=12:                    
+                        thn= thnstring.get()                      
                 else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
-       
-                tgl_lahir=(f"{tgl}-{bln}-{thn}")
-                databayi.append(tgl_lahir)
-   
-   
-                yearvalue = tanggaldata.year
-                monthvalue = tanggaldata.month
-                dayvalue = tanggaldata.day
-                tgl_data= (f"{dayvalue}-{monthvalue}-{yearvalue}")
-                databayi.append(tgl_data)
-    
-                dhari = dayvalue - tgl
-                if dhari >= 15:
-                    dhari = 1
-                else:
-                    dhari = 0
-                dbulan= monthvalue - bln
-                dtahun= (yearvalue - thn)*12
-                total= dhari + dtahun + dbulan
-                usia= total               
-                databayi.append(f"{usia} bulan")
-                break
+                     root = Tk()
+                     root.title("\tDataGizi 1.0")
+                     width = 500
+                     height = 75
+                     screen_width = root.winfo_screenwidth()
+                     screen_height = root.winfo_screenheight()
+                     x = (screen_width / 2) - (width / 2)
+                     y = (screen_height / 2) - (height / 2)
+                     root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                     root.resizable(0, 0)
+                     a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                     p0.pack(fill=X)       
+                     root.mainloop()
+                    
+                     break  
+            else:
+                root = Tk()
+                root.title("\tDataGizi 1.0")
+                width = 500
+                height = 75
+                screen_width = root.winfo_screenwidth()
+                screen_height = root.winfo_screenheight()
+                x = (screen_width / 2) - (width / 2)
+                y = (screen_height / 2) - (height / 2)
+                root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                root.resizable(0, 0)
+                a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                p0 = Label(root,fg='red',font= 'Gungsuh 12', text= a2 )
+                p0.pack(fill=X)       
+                root.mainloop()
+                break   
+
+            tgl_lahir=(f"{tgl}/{bln}/{thn}")
+            databayi.append(tgl_lahir)                    
+            yearvalue = tanggaldata.year
+            monthvalue = tanggaldata.month
+            dayvalue = tanggaldata.day
+            tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
+            databayi.append(tgl_data)
+            #berfungsi untuk pembulatan hari usia
+            dhari = dayvalue - tgl
+            if dhari >= 15:
+                dhari = 1
+            elif 0<=dhari<15:
+                dhari = 0
+            else:
+                dhari = -1
+            dbulan= monthvalue - bln
+            dtahun= (yearvalue - thn)*12
+            total=(dhari + dtahun + dbulan)
+            usia= total            
+            usiatahun = round((total/12),1)              
+            databayi.append(f"{usia} bulan")                                         
             databayi.append('Laki-Laki')            
             datamedian_laki= [
         [0,2.9,3.3,3.9],
@@ -128,13 +257,12 @@ def databalita():
         [57,15.6,17.8,20.4],
         [58,15.8,18,20.6],
         [59,15.9,18.2,20.8],
-        [60,16,18.3,21]
-        ]
-            
-            median=0
+        [60,16,18.3,21]        
+        ]   
             for median in datamedian_laki:
-                if usia in median:
-                    bb = float(input("Berapa berat bayi?(kg): "))
+                us = ([median][0][0])
+                if usia == us:
+                    bb = float(bbstring.get())
                     databayi.append(f"{bb} kg")                   
                     if bb>median[2]:
                          indeks = round((bb - median[2])/(median[3]-median[2]),2)
@@ -166,7 +294,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                          
+                             break                                           
                     elif bb<median[2]:
                          indeks = round((bb - median[2])/(median[2] - median[1]),2)
                          databayi.append(indeks)
@@ -197,7 +325,7 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                             
+                             break                                       
                     else:
                          
                          indeks = round((bb - median[2])/(median[2]),2)
@@ -229,53 +357,129 @@ def databalita():
                              print("Status Gizi = Gizi Normal")
                              databayi.append('Gizi Normal')
                              status = 'Gizi Normal'
-                             break                             
-                elif usia >=60:
-                    print("--------------------")
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
-                    databayi.append('Bukan bayi balita')
-                    break                
+                             break                                 
+                elif usia >60: 
+                    bb = ('None')
+                    databayi.append(bb)
+                    root = Tk()
+                    root.title("\tDataGizi 1.0")
+                    width = 500
+                    height = 50
+                    screen_width = root.winfo_screenwidth()
+                    screen_height = root.winfo_screenheight()
+                    x = (screen_width / 2) - (width / 2)
+                    y = (screen_height / 2) - (height / 2)
+                    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                    root.resizable(0, 0)
+                    a2=("Maaf anak anda bukan termasuk balita.")
+                    a3=(f"Usia anak anda adalah {usiatahun} tahun")
+                    p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+                    p1 = Label(root,bg='red',font= 'Gungsuh 12', text= a3 )
+                    p0.pack(fill=X)  
+                    p1.pack(fill=X)  
+                    root.mainloop()
+                    indeks = ('None')
+                    status =('None')
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    break 
+                elif usia < 0:
+                    usia = 'Usia undefined'
+                    bb= 'None'
+                    indeks = 'None'
+                    status = 'None'
+                    databayi.append(usia)
+                    databayi.append(bb)                    
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    
+                    root = Tk()
+                    root.title("\tDataGizi 1.0")
+                    width = 500
+                    height = 50
+                    screen_width = root.winfo_screenwidth()
+                    screen_height = root.winfo_screenheight()
+                    x = (screen_width / 2) - (width / 2)
+                    y = (screen_height / 2) - (height / 2)
+                    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                    root.resizable(0, 0)
+                    a2=('Ada yang salah pada tanggal.')
+                    a3=('Mohon inputkan tanggal dengan benar')
+                    p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+                    p1 = Label(root,bg='red',font= 'Gungsuh 12', text= a3 )
+                    p0.pack(fill=X)  
+                    p1.pack(fill=X)  
+                    root.mainloop()
+                    break
                
         #pendataan bayi perempuan
-        elif jenis_kelamin == ("2"):            
-            #fungsi pengolahan usia berdasarkan tanggal
-            tanggal= True
-            while tanggal:   
-                tanggaldata = datetime.datetime.now()  
-                print("Inputkan tanggal lahir bayi\n\t-Program ini hanya di peruntukkan untuk balita.\n\t-Hanya balita yang lahir 5 tahun sebelum pendataan ini.")   
-                tgl= int(input("Tanggal(1-31): "))
-                if 1<= tgl <=31:
-                    bln= int(input("Bulan(1-12): "))
-                    if 1<= bln <=12:                    
-                        thn= int(input("Tahun: "))
-                    else:  
-                        print("Mohon masukkan data yang sesuai")
-                        tanggal = True    
-                else:
-                    print("Mohon masukkan data yang sesuai")
-                    tanggal = True
-       
-                tgl_lahir=(f"{tgl}-{bln}-{thn}")
-                databayi.append(tgl_lahir)
-   
-   
-                yearvalue = tanggaldata.year
-                monthvalue = tanggaldata.month
-                dayvalue = tanggaldata.day
-                tgl_data = (f"{dayvalue}-{monthvalue}-{yearvalue}")
-                databayi.append(tgl_data)
-    
-                dhari = dayvalue - tgl
-                if dhari >= 15:
-                    dhari = 1
-                else:
-                    dhari = 0
-                dbulan= monthvalue - bln
-                dtahun= (yearvalue - thn)*12
-                total= dhari + dtahun + dbulan
-                usia= total               
-                databayi.append(f"{usia} bulan")
+        elif jenis_kelamin == ("2"):
+            #variabel ini berfungsi saat penulisan csv
+            jk= 'Perempuan'                      
+            #fungsi pengolahan usia dari waktu pendataan realtime 
+            tanggaldata = datetime.datetime.now() 
+            tgl= tglstring.get()
+            if 1<= tgl <=31:
+                bln= blnstring.get()
+                if 1<= bln <=12:                    
+                        thn= thnstring.get()
+                        
+                else:  
+                     root = Tk()
+                     root.title("\tDataGizi 1.0")
+                     width = 500
+                     height = 75
+                     screen_width = root.winfo_screenwidth()
+                     screen_height = root.winfo_screenheight()
+                     x = (screen_width / 2) - (width / 2)
+                     y = (screen_height / 2) - (height / 2)
+                     root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                     root.resizable(0, 0)
+                     a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                     p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                     p0.pack(fill=X)       
+                     root.mainloop()
+                     break  
+            else:
+                root = Tk()
+                root.title("\tDataGizi 1.0")
+                width = 500
+                height = 75
+                screen_width = root.winfo_screenwidth()
+                screen_height = root.winfo_screenheight()
+                x = (screen_width / 2) - (width / 2)
+                y = (screen_height / 2) - (height / 2)
+                root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                root.resizable(0, 0)
+                a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+                p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+                p0.pack(fill=X)       
+                root.mainloop()
                 break
+       
+            tgl_lahir=(f"{tgl}/{bln}/{thn}")
+            databayi.append(tgl_lahir)
+   
+                      
+            yearvalue = tanggaldata.year
+            monthvalue = tanggaldata.month
+            dayvalue = tanggaldata.day
+            tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
+            databayi.append(tgl_data)
+            #berfungsi untuk pembulatan hari usia
+            dhari = dayvalue - tgl
+            if dhari >= 15:
+                dhari = 1
+            elif 0<=dhari<15:
+                dhari = 0
+            else:
+                dhari = -1
+            dbulan= monthvalue - bln
+            dtahun= (yearvalue - thn)*12
+            total= (dhari + dtahun + dbulan)
+            usia= total          
+            usiatahun = round((total/12),1)              
+            databayi.append(f"{usia} bulan")
             databayi.append('Perempuan')                         
             datamedian_perempuan = [
                      [0,2.8,3.2,3.7],
@@ -338,12 +542,13 @@ def databalita():
                      [57,15.3,17.7,20.6],
                      [58,15.5,17.9,20.8],
                      [59,15.6,18,21],
-                     [60,15.8,18.2,21.2],
+                     [60,16,18.3,21]
                      ]
-            median = 0
+            
             for median in datamedian_perempuan:
-                 if usia in median:
-                     bb = float(input("Berapa berat bayi?(kg): "))
+                 us = ([median][0][0])
+                 if usia == us:  
+                     bb = float(bbstring.get())
                      databayi.append(f"{bb} kg")
                      if bb>median[2]:
                         indeks = round((bb - median[2])/(median[3]-median[2]),2)
@@ -438,95 +643,457 @@ def databalita():
                              databayi.append('Gizi Normal')  
                              status = 'Gizi Normal'                         
                              break
-                 elif usia >= 60:
-                    print("Maaf bayi anda tidak termasuk bayi balita.")
-                    databayi.append('Bukan bayi balita')
+                 elif usia > 60:
+                    bb = 'None'
+                    databayi.append(bb)
+                    root = Tk()
+                    root.title("\tDataGizi 1.0")
+                    width = 500
+                    height = 50
+                    screen_width = root.winfo_screenwidth()
+                    screen_height = root.winfo_screenheight()
+                    x = (screen_width / 2) - (width / 2)
+                    y = (screen_height / 2) - (height / 2)
+                    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                    root.resizable(0, 0)
+                    a2=("Maaf anak anda bukan termasuk balita.")
+                    a3=(f"Usia anak anda adalah {usiatahun} tahun")
+                    p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+                    p1 = Label(root,bg='red',font= 'Gungsuh 12', text= a3 )
+                    p0.pack(fill=X)  
+                    p1.pack(fill=X)  
+                    root.mainloop()
+                    
+                    indeks = ('None')
+                    status =('None')
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    break
+                
+                 elif usia < 0:                     
+                    usia = 'Usia undefined'
+                    bb= 'None'
+                    indeks = 'None'
+                    status = 'None'
+                    databayi.append(usia)
+                    databayi.append(bb)                    
+                    databayi.append(indeks)
+                    databayi.append(status)
+                    root = Tk()
+                    root.title("\tDataGizi 1.0")
+                    width = 500
+                    height = 50
+                    screen_width = root.winfo_screenwidth()
+                    screen_height = root.winfo_screenheight()
+                    x = (screen_width / 2) - (width / 2)
+                    y = (screen_height / 2) - (height / 2)
+                    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                    root.resizable(0, 0)
+                    a2=('Ada yang salah pada tanggal.')
+                    a3=('Mohon inputkan tanggal dengan benar')
+                    p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+                    p1 = Label(root,bg='red',font= 'Gungsuh 12', text= a3 )
+                    p0.pack(fill=X)  
+                    p1.pack(fill=X)  
+                    root.mainloop()
                     break
         else:
-            print("Mohon memasukkan jenis kelamin yang sesuai")                        
+            #membersihkan layar supaya keterangan nampak dengan jelas
+            system ('cls')
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 500
+            height = 50
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            a2=("Mohon memasukkan jenis kelamin yang sesuai perintah!!\nAnda akan kembali ke menu awal.")
+            p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+            p0.pack(fill=X)       
+            root.mainloop()
+            
+            break
+        
+        
         #berfungsi menyimpan data ke dictioary global dengan key of dict "nama"
         datagizi[nama]=databayi
         
-        
-        #berfungsi menanyakan perulangan untuk menambah data
-        print("----------------")
-        print("")
-        print("Apakah ada yang perlu di inputkan lagi?")
-        print("1). Ada\n2). Tidak Ada")
-        ulang = input("# ")
-        if ulang == ("1"):
-            identitas = True
-        elif ulang == ("2"):
-            identitas = False
-        else:
-            print("Input anda salah!!\nMohon masukkan angka berdasarkan pilihan di atas")
-            break
+        #berfungsi menulis csv
         import csv
         import os
         header=['NAMA', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
         
         with open('datagizi.csv','a', newline='\n') as filecsv:
-            datagizicsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jenis_kelamin, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
-            
+            datagizibalitacsv = {'NAMA' : nama, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jk, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
+        
             writer = csv.DictWriter(filecsv, fieldnames = header)
             if os.stat('datagizi.csv').st_size == 0:
-                writer.writeheader()  
+                writer.writeheader()                 
+            else:
+                None  
+            if usia == us:
+                writer.writerow(datagizibalitacsv) 
             else:
                 None
-            writer.writerow(datagizicsv)    
+                
+        #berfungsi menanyakan perulangan untuk menambah data
+        #print("----------------")
+        #print("")
+        #print("Apakah ada yang perlu di inputkan lagi?\n(Input dengan angka)")
+        #print("1). Ada\n2). Tidak Ada")
+        #ulang = str(input("# "))
+        import tkinter as tk       
+        root = tk.Tk()       
+        root.title("\tDataGizi 1.0")
+        #adalah paket pengaturan jendela
+        width = 360
+        height = 175
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        
+        namastring= tk.StringVar(root)#menunjukkan inputan adalah string
+        def close():
+            root.destroy()
+        perintah1 = Label(root,text= "Apakah ada yang ingin di inputkan lagi?\n(1). Ya\n(2). Tidak",font="Times 11 bold",).pack()
+        perintah2 = Label(root,bg='red',fg='white',text= "(Input dengan angka)",font="Times 11 bold",).pack(pady=5)
+        input1 = Entry(root,textvariable = namastring).pack()
+        
+        
+        B = Button(root, text = "NEXT",font = 'Arial 11', command = close)
+        B.pack(anchor = S,pady=5)
+        root.mainloop() 
+        ulang = namastring.get()
+        if ulang == ("1"):
+            system ('cls')    
+            identitas = True            
+        elif ulang == ("2"):
+            system ('cls')        
+            identitas = False       
+        else:          
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 360
+            height = 100
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            a2=("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nDATA SEBELUMNYA TELAH TERSIMPAN.")
+            p0 = Label(root,font= 'Gungsuh 12', text= a2 )
+            p0.pack(fill=X)       
+            root.mainloop()
+            break   
             
 #fungsi cek data berdasarkan nama            
 def datanama():
     namabayi = True
     
     while namabayi:
-        ceknama = str(input("Tuliskan nama bayi anda: "))
+        import tkinter as tk       
+        root = tk.Tk()       
+        root.title("\tDataGizi 1.0")
+        #adalah paket pengaturan jendela
+        width = 360
+        height = 125
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        
+        namastring= tk.StringVar(root)#menunjukkan inputan adalah string
+        def close():
+            root.destroy()
+        perintah1 = Label(root,text= "Nama anak:",font="Times 11 bold",).pack()
+        input1 = Entry(root,textvariable = namastring).pack()
+        
+        
+        B = Button(root, text = "CARI",font = 'Arial 11', command = close)
+        B.pack(anchor = S,pady=5)
+        root.mainloop()
+        
+        ceknama = namastring.get()
         if ceknama in datagizi:
-            print(datagizi[ceknama][0])
-            print(datagizi[ceknama][6])
-            print(datagizi[ceknama][7])
+            root = Tk()
+            root.title("\tDataGizi 1.0")     
+            width = 600
+            height = 500
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            nama= f"Nama         \t:{datagizi[ceknama][0]}."
+            Label(root,
+                      text=nama,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            tgllahir= f"Tanggal Lahir\t:{datagizi[ceknama][1]}."
+            Label(root,
+                      text=tgllahir,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            tgldata= f"Tanggal Data \t:{datagizi[ceknama][2]}."
+            Label(root,
+                      text=tgldata,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            jenis= f"Jenis Kelamin\t:{datagizi[ceknama][4]}."
+            Label(root,
+                      text=jenis,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            usia= f"Usia(bln)    \t:{datagizi[ceknama][3]}."
+            Label(root,
+                      text=usia,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            bb= f"BB(kg)       \t:{datagizi[ceknama][5]}." 
+            Label(root,
+                      text=bb,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            indeks= f"Indeks       \t:{datagizi[ceknama][6]}."
+            Label(root,
+                      text=indeks,
+                      fg = "black",
+                      font = "Times 28 bold").pack()
+            status= f"Status       \t:{datagizi[ceknama][7]}."
+            Label(root,
+                      text=status,
+                      fg = "red",
+                      font = "Times 30 bold").pack()
+            
+            last = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, silahkan klik tombol ('close')   ")
+            last.pack(fill=X)
+            B = Button(root, text = "CLOSE", command = close)
+            B.pack(anchor = S)
+            B.place(x= 300, y= 430)
+            root.mainloop()   
         else:
-            print("Maaf,nama bayi tidak tersedia.")
-        print("----------------")
-        print("")
-        print("Apakah ingin cek lagi?")
-        print("1). Ya\n2). Tidak")
-        ulang = input("# ")
-        if ulang == ("1"):
-            namabayi = True
-        else:
-            namabayi = False      
+            root=Tk()
+            root.title("\tDataGizi 1.0")
+            width=400
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            word = "Maaf,nama anak tidak tersedia."
+            selain = Label(root,text = word,fg = 'red', font = 'Gungsuh 12')
+            selain.pack()
+            root.mainloop()
             
         
-while True:
-    system ('cls')
-    print("===================================================================")
-    print("           Selamat Datang di Program Pendataan Balita")
-    print("===================================================================")
-    print("                   Posyandu Balita Indonesia")
-    print("       Program ini berfungsi untuk mengetahui status balita.")
-    print("    Status gizi didapat dari perhitungan BB terhadap usia balita.")
-    print("       Perhitungan dilakukan berdasarkan tabel rujukan WHO.")
-    print("         Data yang diinput akan masuk ke dalam file csv.")
-    print("===================================================================")
-    print("           Kami memiliki 3 fitur yang dapat digunakan")
-    print("                (1) untuk pendataan gizi bayi")    
-    print("                (2) untuk cek status gizi")
-    print("                (3) untuk keluar program")
-    print("            Silahkan pilih salah satu fitur: (angka)")
-    print('                    Kelompok 9 Presents')
-    print("==================================================================")
-    print("           Klik ctrl + c untuk memulai ulang program")
-    print("==================================================================")
+        import tkinter as tk       
+        root = tk.Tk()       
+        root.title("\tDataGizi 1.0")
+        #adalah paket pengaturan jendela
+        width = 360
+        height = 175
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        
+        namastring= tk.StringVar(root)#menunjukkan inputan adalah string
+        def close():
+            root.destroy()
+        perintah1 = Label(root,text= "Apakah ada yang ingin di cek lagi?\n(1). Ya\n(2). Tidak",font="Times 11 bold",).pack()
+        perintah2 = Label(root,bg='red',fg='white',text= "(Input dengan angka)",font="Times 11 bold",).pack(pady=5)
+        input1 = Entry(root,textvariable = namastring).pack(pady=5)
+        
+        
+        B = Button(root, text = "NEXT",font = 'Arial 11', command = close)
+        B.pack(anchor = S,pady=5)
+        root.mainloop()
+        
+        ulang = namastring.get()
+        if ulang == ("1"):
+            namabayi = True
+        elif ulang == ("2"):
+            namabayi = False
+        else:
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 360
+            height = 100
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            a2=("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
+            p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+            p0.pack(fill=X)       
+            root.mainloop()
+            break   
+
+#fungsi membaca csv        
+def baca():
     
-    start = input("# ")
+    import tkinter.ttk as ttk
+    import csv
+
+    root = Tk()
+    root.title("Tabel Data Gizi Balita")
+    width = 720
+    height = 400
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x = (screen_width / 2) - (width / 2)
+    y = (screen_height / 2) - (height / 2)
+    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+    root.resizable(0, 0)
+
+    TableMargin = Frame(root, width=720)
+    TableMargin.pack(side=TOP)
+
+    scrollbarx = Scrollbar(TableMargin, orient=HORIZONTAL)
+    scrollbary = Scrollbar(TableMargin, orient=VERTICAL)
+    tree = ttk.Treeview(TableMargin, columns=("NAMA", "TANGGAL LAHIR", "TANGGAL DATA",'USIA','JENIS KELAMIN','BB','INDEKS GIZI','STATUS GIZI'), height=400, selectmode="extended",
+                        yscrollcommand=scrollbary.set, xscrollcommand=scrollbarx.set)
+    scrollbary.config(command=tree.yview)
+    scrollbary.pack(side=RIGHT, fill=Y)
+    scrollbarx.config(command=tree.xview)
+    scrollbarx.pack(side=BOTTOM, fill=X)
+    tree.heading('NAMA', text="NAMA", anchor=W)
+    tree.heading('TANGGAL LAHIR', text="TANGGAL LAHIR", anchor=W)
+    tree.heading('TANGGAL DATA', text="TANGGAL DATA", anchor=W)
+    tree.heading('USIA', text="USIA (bulan)", anchor=W)
+    tree.heading('JENIS KELAMIN', text="JENIS KELAMIN", anchor=W)
+    tree.heading('BB', text="BB (kg)", anchor=W)
+    tree.heading('INDEKS GIZI', text="INDEKS GIZI", anchor=W)
+    tree.heading('STATUS GIZI', text="STATUS GIZI", anchor=W)
+    tree.column('#0', stretch=NO, minwidth=0, width=0)
+    tree.column('#1', stretch=NO, minwidth=0, width=120)
+    tree.column('#2', stretch=NO, minwidth=0, width=120)
+    tree.column('#3', stretch=NO, minwidth=0, width=120)  
+    tree.column('#4', stretch=NO, minwidth=0, width=120)
+    tree.column('#5', stretch=NO, minwidth=0, width=120)
+    tree.column('#6', stretch=NO, minwidth=0, width=120)
+    tree.column('#6', stretch=NO, minwidth=0, width=120)    
+    tree.pack()
+
+    with open('datagizi.csv') as f:
+      reader = csv.DictReader(f, delimiter=',')
+      for row in reader:
+        nama = row['NAMA']
+        tl = row['TANGGAL LAHIR']
+        dt = row['TANGGAL DATA']
+        u = row['USIA']
+        jk = row['JENIS KELAMIN']
+        bb = row['BB(kg)']
+        i = row['INDEKS']
+        st = row['STATUS GIZI']
+        tree.insert("", 0, values=(nama,tl,dt,u,jk,bb,i,st))
+    root.mainloop()
+                   
+while True:
+    import tkinter as tk  
+    #system('cls')     
+    root = tk.Tk()       
+    root.title("\tDataGizi 1.0")
+    #adalah paket pengaturan jendela
+    width = 500
+    height = 250
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x = (screen_width / 2) - (width / 2)
+    y = (screen_height / 2) - (height / 2)
+    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+    root.resizable(0, 0)
+    
+    namastring= tk.StringVar(root)#menunjukkan inputan adalah string
+    def close():
+        root.destroy()
+    perintah1 = Label(root,text=
+                      "Kami memiliki 4 fitur utama dalam program ini:",font="Times 14 bold",).pack()
+    i2 = Label(root, text="(1) untuk melakukan pendataan gizi balita",font='Gungsuh 12')
+    i2.place(x= 200, y= height/2)
+    i3 = Label(root, text="(2) untuk pengecekan data balita",font='Gungsuh 12')
+    i3.place(x= 200, y= height/2)
+    i4 = Label(root, text="(3) untuk mengecek data balita yang sudah diinputkan",font='Gungsuh 12')
+    i4.place(x= 200, y= height/2)
+    i5 = Label(root, text="(4) untuk keluar program",font='Gungsuh 12')
+    i5.place(x= 200, y= height/2)
+    i6 = Label(root, text="Silahkan pilih salah satu fitur kemudian ketik (angka)",bg='red',fg='white',font='Gungsuh 12')
+    i6.place(x= width/2, y= height/2)
+    i2.pack()
+    i3.pack()
+    i4.pack()
+    i5.pack()
+    i6.pack()
+    
+    input1 = Entry(root,textvariable = namastring).pack(pady=10)
+        
+    B = Button(root, text = "PILIH",font = 'Arial 11', command = close)
+    B.pack(anchor = S, pady=5)    
+        
+    root.mainloop() 
+        
+    start = namastring.get()
     if start== ("1"):
         system ("cls")
         databalita()
     elif start== ("2"):
         system ("cls")
         datanama()
+    elif start== ("3"):
+        baca()
+    elif start == ("4"):
+        root = tk.Tk()
+        root.title("\tDataGizi 1.0")
+        width = 360
+        height = 100
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        p0 = Label(root,bg='green',fg='white',font= 'Gungsuh 12', text="PROGRAM SELESAI")
+        p0.pack(fill=X,pady=5)
+        p1 = Label(root,bg='green',fg='white',font= 'Gungsuh 12', text="DATA ANDA TELAH TERSIMPAN")
+        p1.pack(fill=X,pady=5)
+        p2 = Label(root,bg='green',fg='white',font= 'Gungsuh 12', text="TERIMA KASIH")
+        p2.pack(fill=X,pady=5)
+        root.mainloop()
+        break    
     else:
         system ("cls")
-        print("PROGRAM SELESAI\nDATA ANDA TELAH TERSIMPAN\nTERIMA KASIH")   
-        break
+        root = tk.Tk()
+        root.title("\tDataGizi 1.0")
+        width = 360
+        height = 100
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        p0 = Label(root,bg='red',font= 'Gungsuh 12', text="INPUT SALAH")
+        p0.pack(fill=X,pady=5)
+        p1 = Label(root,bg='red',font= 'Gungsuh 12', text="PROGRAM BERHENTI")
+        p1.pack(fill=X,pady=5)
+        p2 = Label(root,bg='red',font= 'Gungsuh 12', text="SILAHKAN MULAI ULANG PROGRAM KEMBALI")
+        p2.pack(fill=X,pady=5)
+        root.mainloop()
+        break    
+        
