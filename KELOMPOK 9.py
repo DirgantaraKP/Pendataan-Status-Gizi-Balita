@@ -98,10 +98,10 @@ def databalita():
         
         namastring= tk.StringVar(root)#menunjukkan inputan adalah string
         jkstring= tk.StringVar(root)
-        tglstring= tk.IntVar(root)#menunjukkan inputan adalah interger
-        blnstring= tk.IntVar(root)
-        thnstring= tk.IntVar(root)
-        bbstring= tk.IntVar(root)
+        tglstring= tk.StringVar(root)#menunjukkan inputan adalah interger
+        blnstring= tk.StringVar(root)
+        thnstring= tk.StringVar(root)
+        bbstring= tk.StringVar(root)
         def close():
             root.destroy()
             
@@ -135,11 +135,11 @@ def databalita():
             #fungsi pengolahan usia dari waktu pendataan realtime 
             tanggaldata = datetime.datetime.now() 
             
-            tgl= tglstring.get()
+            tgl= int(tglstring.get())
             if 1<= tgl <=31:
-                bln= blnstring.get()
+                bln= int(blnstring.get())
                 if 1<= bln <=12:                    
-                        thn= thnstring.get()                      
+                        thn= int(thnstring.get())                      
                 else:
                      root = Tk()
                      root.title("\tDataGizi 1.0")
@@ -418,11 +418,11 @@ def databalita():
             jk= 'Perempuan'                      
             #fungsi pengolahan usia dari waktu pendataan realtime 
             tanggaldata = datetime.datetime.now() 
-            tgl= tglstring.get()
+            tgl= int(tglstring.get())
             if 1<= tgl <=31:
-                bln= blnstring.get()
+                bln= int(blnstring.get())
                 if 1<= bln <=12:                    
-                        thn= thnstring.get()
+                        thn= int(thnstring.get())
                         
                 else:  
                      root = Tk()
@@ -739,12 +739,7 @@ def databalita():
             else:
                 None
                 
-        #berfungsi menanyakan perulangan untuk menambah data
-        #print("----------------")
-        #print("")
-        #print("Apakah ada yang perlu di inputkan lagi?\n(Input dengan angka)")
-        #print("1). Ada\n2). Tidak Ada")
-        #ulang = str(input("# "))
+       
         import tkinter as tk       
         root = tk.Tk()       
         root.title("\tDataGizi 1.0")
@@ -811,7 +806,7 @@ def datanama():
         root.geometry("%dx%d+%d+%d" % (width, height, x, y))
         root.resizable(0, 0)
         
-        namastring= tk.StringVar(root)#menunjukkan inputan adalah string
+        namastring= tk.StringVar(root)
         def close():
             root.destroy()
         perintah1 = Label(root,text= "Nama anak:",font="Times 11 bold",).pack()
@@ -879,7 +874,7 @@ def datanama():
             last.pack(fill=X)
             B = Button(root, text = "CLOSE", command = close)
             B.pack(anchor = S)
-            B.place(x= 300, y= 430)
+            B.place(x= 275, y= 430)
             root.mainloop()   
         else:
             root=Tk()
@@ -1012,7 +1007,7 @@ while True:
     root.title("\tDataGizi 1.0")
     #adalah paket pengaturan jendela
     width = 500
-    height = 250
+    height = 300
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     x = (screen_width / 2) - (width / 2)
@@ -1023,37 +1018,35 @@ while True:
     namastring= tk.StringVar(root)#menunjukkan inputan adalah string
     def close():
         root.destroy()
-    perintah1 = Label(root,text=
-                      "Kami memiliki 4 fitur utama dalam program ini:",font="Times 14 bold",).pack()
-    i2 = Label(root, text="(1) untuk melakukan pendataan gizi balita",font='Gungsuh 12')
+    perintah1 = Label(root,text="Kami memiliki 3 fitur utama dalam program ini:",font="Cambria 14 ",).pack()
+    perintah2 = Label(root,text="================================================").pack()
+    i2 = Label(root, text="(1) untuk melakukan pendataan gizi balita",font='Cambria 12',justify=LEFT)
     i2.place(x= 200, y= height/2)
-    i3 = Label(root, text="(2) untuk pengecekan data balita",font='Gungsuh 12')
+    i3 = Label(root, text="(2) untuk mengecek data balita",font='Cambria 12',justify=LEFT)
     i3.place(x= 200, y= height/2)
-    i4 = Label(root, text="(3) untuk mengecek data balita yang sudah diinputkan",font='Gungsuh 12')
+    i4 = Label(root, text="(3) untuk melihat data balita yang tercatat dalam CSV",font='Cambria 12',justify=LEFT)
     i4.place(x= 200, y= height/2)
-    i5 = Label(root, text="(4) untuk keluar program",font='Gungsuh 12')
+    i5 = Label(root, text="(4) untuk keluar dari program",font='Cambria 12',justify=LEFT)
     i5.place(x= 200, y= height/2)
-    i6 = Label(root, text="Silahkan pilih salah satu fitur kemudian ketik (angka)",bg='red',fg='white',font='Gungsuh 12')
-    i6.place(x= width/2, y= height/2)
+    i6 = Label(root, text="Silahkan pilih salah satu fitur kemudian ketik (angka)",font='Cambria 12')
+    i6.place(x= width/2, y= height/2)    
     i2.pack()
     i3.pack()
     i4.pack()
     i5.pack()
     i6.pack()
+    perintah2 = Label(root,text="================================================").pack()
     
-    input1 = Entry(root,textvariable = namastring).pack(pady=10)
-        
+    input1 = Entry(root,textvariable = namastring,fg='black',bg='grey').pack()
     B = Button(root, text = "PILIH",font = 'Arial 11', command = close)
-    B.pack(anchor = S, pady=5)    
-        
+    B.pack(anchor = S)    
+    B.place(x=225,y=225)   
     root.mainloop() 
         
     start = namastring.get()
     if start== ("1"):
-        system ("cls")
         databalita()
     elif start== ("2"):
-        system ("cls")
         datanama()
     elif start== ("3"):
         baca()
