@@ -24,7 +24,7 @@ Berikut merupakan referensi program yang Kelompok 9 buat
 4. Program tentang cara mengolah grid pada tkinter.
    Pada program ini digunakan untuk menampilkan isi data CSV
    Mengkombinasikan readCSV dapat menampilkan isi data CSV yang telah diinputkan.
-   Pada bahasa ini sudah meliputi banyak aspek seperti mengolah ukuran jendela GUI, meletakkan posisi secara geometry, menentukan          kemampuan resizable jendela.
+   Pada bahasa ini sudah meliputi banyak aspek seperti mengolah ukuran jendela GUI, meletakkan posisi secara geometri, menentukan          kemampuan resizable jendela.
    Kami menerapkan paket pengaturan ukuran jendela letak geometry pada semua module tkinter saat digunakan.
 
    Sumber: https://stackoverflow.com/questions/42748343/how-to-show-csv-file-in-a-grid
