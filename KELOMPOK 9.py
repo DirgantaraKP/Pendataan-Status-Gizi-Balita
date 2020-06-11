@@ -35,22 +35,18 @@ q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI", font
 T1 = Label(root, text="Kelompok kami terdiri dari:", font='Gungsuh 12')
 T1.place(x= width/2, y= height/2)
 z2 = Label(root, text="                                                      ")
-
 T2 = Label(root, text="1.Anggara Firmansyah\t(I0319012)",font='Gungsuh 12')
 T2.place(x= width/2, y= height/2)
 T3 = Label(root, text="2.Aulia Ba'syafira W\t\t(I0319017)",font='Gungsuh 12')
 T3.place(x= width/2, y= height/2)
 T4 = Label(root, text="3.Dirgantara Kusuma P\t(I0319026)",font='Gungsuh 12')
 T4.place(x= width/2, y= height/2)
-
 T5 = Label(root, text="4.Fatimah Jihan A\t\t(I0319035)",font='Gungsuh 12')
 T5.place(x= width/2, y= height/2)
 T6 = Label(root, text="5.Anisa Agustina\t\t(I0318013)",font='Gungsuh 12')
 T6.place(x= width/2, y= height/2)
 q2 = Label(root, text="                                                     ")
-
 q3 = Label(root, bg="red", fg="white", text="Untuk melanjutkan program, klik tombol 'NEXT'",font='Gungsuh 12')
-
 q4 = Label(root, text="                                                     ")
 q5 = Label(root, text="                                                     ")
 q6 = Label(root, text="                                                     ")
