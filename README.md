@@ -8,7 +8,22 @@ Anggota kelompok 9:
 4. Fatimah Jihan A     (I0319035)
 5. Anisa Agustina      (I0318013)
 
-Untuk menguji program kami mohon unduh file datagizi.csv terlebih dahulu atau langsung menguji pada fitur 1 dahulu.
+Pada repository ini terdapat:
+ 1. Program utama dengan nama file "KELOMPOK 9.py"
+    merupakan program dengan bahasa python dan menggunakan GUI dari tkinter.
+ 2. Referensi Program
+    berisi sumber sumber program yang kami gunakan untuk membuat program utama.
+ 3. Deskripsi Program
+    merupakan penjelasan program dari seluruh fitur dengan kalimat deskriptif.
+ 4. Diagram alir
+    merupakan sebuah flowchart dari program utama
+ 5. CSV file dengan nama file datagizi
+    merupakan sampel file untuk memulai program. Sifat file ini opsional karena dapat terbentuk otomatis ketika menjalankan     program(fitur 1 dahulu)
+ 6. README.md
+    merupakan penjelasan isi dari repository.
+
+
+nb: Untuk menguji program kami mohon unduh file datagizi.csv terlebih dahulu atau langsung menguji pada fitur 1 dahulu.
 Fitur 3 tidak bisa dijalankan apabila belum terbentuk file CSV/belum menjalankan fitur 1
  
 
