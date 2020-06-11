@@ -33,5 +33,10 @@ Berikut merupakan referensi program yang Kelompok 9 buat
    Referensi ke-5 ini berasal dari program milik Satrio Fachri.C dengan judul file "latihan13b.py"(file dilampirkan)
    Secara isi berbeda karena pada program kami memuat rumus untuk mengolah indeks dengan metode skor-Z
 
+6. Program tentang memasukkan entry pada tkinter serta mendapatkan value of entry dengan get()
+   Program ini kami gunakan untuk mengubah input ke dalam tkinter, yang pada awal nya berada pada prompt
+   
+   Sumber : https://stackoverflow.com/questions/35662844/python-tkinter-entry-get
+
 
    	
