@@ -1,0 +1,37 @@
+Berikut merupakan referensi program yang Kelompok 9 buat
+  :
+
+
+1. Program tentang penggunaan module datetime untuk mengolah waktu.
+   Pada program kami module ini khusus nya digunakan untuk menghitung USIA anak berdasarkan tanggal lahir dan tanggal pendataan.
+   
+   Sumber : https://koding.alza.web.id/menggunakan-modul-datetime/
+
+2. Program tentang penggunaan penulisan CSV  (csv.DictWriter)
+   Kami menggunakan fungsi ini untuk memasukkan data yang telah di input kedalam CSV file.
+   Penulisan ini menggunakan mode append 'a' ,sehingga data bertambah.
+   Pada fungsi ini kami modifikasi supaya hanya anak yan berusia 0 - 60 bulan saja yang dapat masuk keCSV file.
+
+   Sumber: https://stackoverflow.com/questions/2363731/append-new-row-to-old-csv-file-python
+
+3. Program tentang penggunaan GUI tkinter untuk pesan awal.
+   Penggunaan module ini mengutamakan fungsi Label untuk menampilkan isi pesan
+   Pada penggunaan ini kami memodifikasi isi pesan saja.
+
+   Sumber: https://www.tutorialspoint.com/python/tk_label.htm
+   https://www.youtube.com/watch?v=RWCeiOCfIuY
+
+4. Program tentang cara mengolah grid pada tkinter.
+   Pada program ini digunakan untuk menampilkan isi data CSV
+   Mengkombinasikan readCSV dapat menampilkan isi data CSV yang telah diinputkan.
+   Pada bahasa ini sudah meliputi banyak aspek seperti mengolah ukuran jendela GUI, meletakkan posisi secara geometri, menentukan          kemampuan resizable jendela.
+   Kami menerapkan paket pengaturan ukuran jendela letak geometry pada semua module tkinter saat digunakan.
+
+   Sumber: https://stackoverflow.com/questions/42748343/how-to-show-csv-file-in-a-grid
+
+5. Program tentang pengolahan dictionary dalam hal fungsi append
+   Referensi ke-5 ini berasal dari program milik Satrio Fachri.C dengan judul file "latihan13b.py"(file dilampirkan)
+   Secara isi berbeda karena pada program kami memuat rumus untuk mengolah indeks dengan metode skor-Z
+
+
+   	

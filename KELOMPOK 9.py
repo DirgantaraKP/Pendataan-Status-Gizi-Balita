@@ -9,6 +9,7 @@ from os import system
 import datetime
 from tkinter import *
 import tkinter.ttk
+
 import tkinter as tk
 
 
@@ -17,6 +18,7 @@ import tkinter as tk
 #fungsi menutup jendela
 def close_window():    
     root.destroy()
+
 #Menambahkan fitur GUI menggunakan Tkinter
 root = Tk()
 root.title("\tDataGizi 1.0")
@@ -33,23 +35,29 @@ q1 = Label(root, text="  SELAMAT DATANG DI PROGRAM PERHITUNGAN NILAI GIZI", font
 T1 = Label(root, text="Kelompok kami terdiri dari:", font='Gungsuh 12')
 T1.place(x= width/2, y= height/2)
 z2 = Label(root, text="                                                      ")
+
 T2 = Label(root, text="1.Anggara Firmansyah\t(I0319013)",font='Gungsuh 12')
 T2.place(x= width/2, y= height/2)
 T3 = Label(root, text="2.Aulia Ba'syafira W\t\t(I0319017)",font='Gungsuh 12')
 T3.place(x= width/2, y= height/2)
 T4 = Label(root, text="3.Dirgantara Kusuma P\t(I0319026)",font='Gungsuh 12')
 T4.place(x= width/2, y= height/2)
+
 T5 = Label(root, text="4.Fatimah Jihan A\t\t(I0319035)",font='Gungsuh 12')
 T5.place(x= width/2, y= height/2)
 T6 = Label(root, text="5.Anisa Agustina\t\t(I0318013)",font='Gungsuh 12')
 T6.place(x= width/2, y= height/2)
 q2 = Label(root, text="                                                     ")
+
 q3 = Label(root, bg="red", fg="white", text="Untuk melanjutkan program, klik tombol 'NEXT'",font='Gungsuh 12')
+
 q4 = Label(root, text="                                                     ")
 q5 = Label(root, text="                                                     ")
 q6 = Label(root, text="                                                     ")
 q7 = Label(root, text="    Created by Kelompok 9   ",font='Gungsuh 12')
 q8 = Label(root, text="====================================================")
+
+
 q0.pack()
 q1.pack()
 T1.pack()
@@ -60,15 +68,19 @@ T4.pack()
 T5.pack()
 T6.pack()
 q2.pack()
+
 q3.pack()
+
 q4.pack()
 q5.pack()
 q6.pack()
 q7.pack()
 q8.pack()
+
 B = Button(root, text = "NEXT", command = close_window)
 B.pack(anchor = S)
 B.place(x= 225, y=275)
+
 root.mainloop()
 
 #dictionary untuk menyimpan input an dalam list
@@ -83,6 +95,7 @@ def databalita():
     while identitas:        
         #list untuk menampung data bayi
         databayi = []
+
         import tkinter as tk       
         root = tk.Tk()       
         root.title("\tDataGizi 1.0")
@@ -128,18 +141,21 @@ def databalita():
         nama = namastring.get()
         databayi.append(nama)
         jenis_kelamin= jkstring.get()
+
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
             #variabel ini berfungsi saat penulisan csv
             jk= 'Laki-Laki'
             #fungsi pengolahan usia dari waktu pendataan realtime 
             tanggaldata = datetime.datetime.now() 
+
             
             tgl= int(tglstring.get())
             if 1<= tgl <=31:
                 bln= int(blnstring.get())
                 if 1<= bln <=12:                    
                         thn= int(thnstring.get())                      
+
                 else:
                      root = Tk()
                      root.title("\tDataGizi 1.0")
@@ -169,7 +185,9 @@ def databalita():
                 root.geometry("%dx%d+%d+%d" % (width, height, x, y))
                 root.resizable(0, 0)
                 a2=("Mohon masukkan data yang sesuai!.\nAnda akan kembali pada menu utama secara otomatis.")
+
                 p0 = Label(root,fg='red',font= 'Gungsuh 12', text= a2 )
+
                 p0.pack(fill=X)       
                 root.mainloop()
                 break   
@@ -194,7 +212,9 @@ def databalita():
             total=(dhari + dtahun + dbulan)
             usia= total            
             usiatahun = round((total/12),1)              
+
             databayi.append(f"{usia} bulan")                                         
+
             databayi.append('Laki-Laki')            
             datamedian_laki= [
         [0,2.9,3.3,3.9],
@@ -262,7 +282,9 @@ def databalita():
             for median in datamedian_laki:
                 us = ([median][0][0])
                 if usia == us:
+
                     bb = float(bbstring.get())
+
                     databayi.append(f"{bb} kg")                   
                     if bb>median[2]:
                          indeks = round((bb - median[2])/(median[3]-median[2]),2)
@@ -361,6 +383,7 @@ def databalita():
                 elif usia >60: 
                     bb = ('None')
                     databayi.append(bb)
+
                     root = Tk()
                     root.title("\tDataGizi 1.0")
                     width = 500
@@ -378,6 +401,7 @@ def databalita():
                     p0.pack(fill=X)  
                     p1.pack(fill=X)  
                     root.mainloop()
+
                     indeks = ('None')
                     status =('None')
                     databayi.append(indeks)
@@ -393,6 +417,7 @@ def databalita():
                     databayi.append(indeks)
                     databayi.append(status)
                     
+
                     root = Tk()
                     root.title("\tDataGizi 1.0")
                     width = 500
@@ -410,6 +435,7 @@ def databalita():
                     p0.pack(fill=X)  
                     p1.pack(fill=X)  
                     root.mainloop()
+
                     break
                
         #pendataan bayi perempuan
@@ -418,11 +444,13 @@ def databalita():
             jk= 'Perempuan'                      
             #fungsi pengolahan usia dari waktu pendataan realtime 
             tanggaldata = datetime.datetime.now() 
+
             tgl= int(tglstring.get())
             if 1<= tgl <=31:
                 bln= int(blnstring.get())
                 if 1<= bln <=12:                    
                         thn= int(thnstring.get())
+
                         
                 else:  
                      root = Tk()
@@ -548,7 +576,9 @@ def databalita():
             for median in datamedian_perempuan:
                  us = ([median][0][0])
                  if usia == us:  
+
                      bb = float(bbstring.get())
+
                      databayi.append(f"{bb} kg")
                      if bb>median[2]:
                         indeks = round((bb - median[2])/(median[3]-median[2]),2)
@@ -646,6 +676,7 @@ def databalita():
                  elif usia > 60:
                     bb = 'None'
                     databayi.append(bb)
+
                     root = Tk()
                     root.title("\tDataGizi 1.0")
                     width = 500
@@ -664,6 +695,7 @@ def databalita():
                     p1.pack(fill=X)  
                     root.mainloop()
                     
+
                     indeks = ('None')
                     status =('None')
                     databayi.append(indeks)
@@ -679,6 +711,7 @@ def databalita():
                     databayi.append(bb)                    
                     databayi.append(indeks)
                     databayi.append(status)
+
                     root = Tk()
                     root.title("\tDataGizi 1.0")
                     width = 500
@@ -696,10 +729,12 @@ def databalita():
                     p0.pack(fill=X)  
                     p1.pack(fill=X)  
                     root.mainloop()
+
                     break
         else:
             #membersihkan layar supaya keterangan nampak dengan jelas
             system ('cls')
+
             root = Tk()
             root.title("\tDataGizi 1.0")
             width = 500
@@ -715,6 +750,7 @@ def databalita():
             p0.pack(fill=X)       
             root.mainloop()
             
+
             break
         
         
@@ -739,6 +775,7 @@ def databalita():
             else:
                 None
                 
+
        
         import tkinter as tk       
         root = tk.Tk()       
@@ -765,6 +802,7 @@ def databalita():
         B.pack(anchor = S,pady=5)
         root.mainloop() 
         ulang = namastring.get()
+
         if ulang == ("1"):
             system ('cls')    
             identitas = True            
@@ -793,6 +831,7 @@ def datanama():
     namabayi = True
     
     while namabayi:
+
         import tkinter as tk       
         root = tk.Tk()       
         root.title("\tDataGizi 1.0")
@@ -822,6 +861,7 @@ def datanama():
             root = Tk()
             root.title("\tDataGizi 1.0")     
             width = 600
+
             height = 500
             screen_width = root.winfo_screenwidth()
             screen_height = root.winfo_screenheight()
@@ -869,12 +909,14 @@ def datanama():
                       text=status,
                       fg = "red",
                       font = "Times 30 bold").pack()
+
             
             last = Label(root, bg="red", fg="white", text="     Untuk melanjutkan program, silahkan klik tombol ('close')   ")
             last.pack(fill=X)
             B = Button(root, text = "CLOSE", command = close)
             B.pack(anchor = S)
             B.place(x= 275, y= 430)
+
             root.mainloop()   
         else:
             root=Tk()
@@ -888,6 +930,7 @@ def datanama():
             root.geometry("%dx%d+%d+%d" % (width, height, x, y))
             root.resizable(0, 0)
             word = "Maaf,nama anak tidak tersedia."
+
             selain = Label(root,text = word,fg = 'red', font = 'Gungsuh 12')
             selain.pack()
             root.mainloop()
@@ -919,6 +962,7 @@ def datanama():
         root.mainloop()
         
         ulang = namastring.get()
+
         if ulang == ("1"):
             namabayi = True
         elif ulang == ("2"):
@@ -935,7 +979,9 @@ def datanama():
             root.geometry("%dx%d+%d+%d" % (width, height, x, y))
             root.resizable(0, 0)
             a2=("INPUT ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
+
             p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
+
             p0.pack(fill=X)       
             root.mainloop()
             break   
@@ -1001,6 +1047,7 @@ def baca():
     root.mainloop()
                    
 while True:
+
     import tkinter as tk  
     #system('cls')     
     root = tk.Tk()       
@@ -1044,6 +1091,7 @@ while True:
     root.mainloop() 
         
     start = namastring.get()
+
     if start== ("1"):
         databalita()
     elif start== ("2"):
@@ -1051,7 +1099,9 @@ while True:
     elif start== ("3"):
         baca()
     elif start == ("4"):
+
         root = tk.Tk()
+
         root.title("\tDataGizi 1.0")
         width = 360
         height = 100
@@ -1061,16 +1111,19 @@ while True:
         y = (screen_height / 2) - (height / 2)
         root.geometry("%dx%d+%d+%d" % (width, height, x, y))
         root.resizable(0, 0)
+
         p0 = Label(root,bg='green',fg='white',font= 'Gungsuh 12', text="PROGRAM SELESAI")
         p0.pack(fill=X,pady=5)
         p1 = Label(root,bg='green',fg='white',font= 'Gungsuh 12', text="DATA ANDA TELAH TERSIMPAN")
         p1.pack(fill=X,pady=5)
         p2 = Label(root,bg='green',fg='white',font= 'Gungsuh 12', text="TERIMA KASIH")
         p2.pack(fill=X,pady=5)
+
         root.mainloop()
         break    
     else:
         system ("cls")
+
         root = tk.Tk()
         root.title("\tDataGizi 1.0")
         width = 360
@@ -1090,3 +1143,4 @@ while True:
         root.mainloop()
         break    
         
+
