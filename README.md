@@ -22,9 +22,14 @@ Pada repository ini terdapat:
  6. README.md
     merupakan penjelasan isi dari repository.
 
+#Penjelasan dan Cara Penggunaan Program
+ 1. Program dapat dijalankan lewat anaconda prompt/python shell. Di tampilan awal akan ada pesan sambutan dilanjut dengan MENU AWAL.
+ 2. Ada 3 fitur utama yang dapat dipilih yaitu untuk, input data,cek data(fitur ini berlaku sekali running), dan cek data yang telah masuk dalam file CSV.
+ 3. Untuk menjalankan tinggal mengikuti perintah yang diminta. Apabila muncul pesan peringatan tentang suatu kesalahan bisa langsung meng klik tombol close pada pesan tersebut.
+ 4.Untuk menguji program kami mohon unduh file datagizi.csv terlebih dahulu atau langsung menguji pada fitur 1 dahulu.
+Fitur 3 tidak bisa dijalankan apabila belum terbentuk file CSV/belum menjalankan fitur 1.
 
-nb: Untuk menguji program kami mohon unduh file datagizi.csv terlebih dahulu atau langsung menguji pada fitur 1 dahulu.
-Fitur 3 tidak bisa dijalankan apabila belum terbentuk file CSV/belum menjalankan fitur 1
+Terimakasih
  
 
 
