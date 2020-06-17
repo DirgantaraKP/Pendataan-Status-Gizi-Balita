@@ -28,6 +28,6 @@ Pada repository ini terdapat:
 
 Terimakasih
  
-
+nb:Untuk mengtest pembentukan csv yang terpisah maka bisa mengganti tanggal pada laptop, karena kami menggunakan module datetime.now()
 
 
