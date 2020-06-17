@@ -17,17 +17,14 @@ Pada repository ini terdapat:
     merupakan penjelasan program dari seluruh fitur dengan kalimat deskriptif.
  4. Diagram alir
     merupakan sebuah flowchart dari program utama
- 5. CSV file dengan nama file datagizi
-    merupakan sampel file untuk memulai program. Sifat file ini opsional karena dapat terbentuk otomatis ketika menjalankan     program(fitur 1 dahulu)
- 6. README.md
+ 5. README.md
     merupakan penjelasan isi dari repository.
 
 #Penjelasan-dan-Cara-Penggunaan-Program
  1. Program dapat dijalankan lewat anaconda prompt/python shell. Di tampilan awal akan ada pesan sambutan dilanjut dengan MENU AWAL.
- 2. Ada 3 fitur utama yang dapat dipilih yaitu untuk, input data,cek data(fitur ini berlaku sekali running), dan cek data yang telah masuk dalam file CSV.
- 3. Untuk menjalankan tinggal mengikuti perintah yang diminta. Apabila muncul pesan peringatan tentang suatu kesalahan bisa langsung meng klik tombol close pada pesan tersebut.
- 4.Untuk menguji program kami mohon unduh file datagizi.csv terlebih dahulu atau langsung menguji pada fitur 1 dahulu.
-Fitur 3 tidak bisa dijalankan apabila belum terbentuk file CSV/belum menjalankan fitur 1.
+ 2. Ada 4 fitur utama yang dapat dipilih yaitu untuk input data, cek data perorangan ,cek data yang telah masuk dalam file CSV dan           keluar dari program.
+ 3. Untuk menjalankan silahkan mengikuti perintah yang diminta. Apabila muncul pesan peringatan tentang suatu kesalahan bisa langsung       mengklik tombol close pada pesan tersebut.
+ 4. File csv akan terbentuk dengan sendirinya tanpa mengunduh terlebih dahulu dan akan terpisah berdasar tanggal kapan data diinputkan
 
 Terimakasih
  
