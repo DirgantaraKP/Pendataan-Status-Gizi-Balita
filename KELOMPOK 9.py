@@ -75,18 +75,14 @@ B = Button(root, text = "NEXT", command = close_window)
 B.pack(anchor = S)
 B.place(x= 225, y=275)
 
-root.mainloop()
-
-#dictionary untuk membentuk csv
-datagizibalitacsv = {}
-        
+root.mainloop()        
 #fungsipendataanbayi
 def databalita():
     #berfungsi menentukan kebenaran untuk menjalankan pengulangan
     identitas = True   
     while identitas:
         import tkinter as tk
-        databayi=[]
+        
         root = tk.Tk()       
         root.title("\tDataGizi 1.0")
         #adalah paket pengaturan jendela
@@ -113,7 +109,7 @@ def databalita():
         
         perintah1 = Label(root,text= "Nama anak:",font="Times 11 bold",).pack()
         input1 = Entry(root,textvariable = namastring).pack()
-        perintah = Label(root,text= "Nomor Induk Anak:",font="Times 11 bold",).pack()
+        perintah = Label(root,text= "Nomor Induk Anak(6 digit angka):",font="Times 11 bold",).pack()
         input1 = Entry(root,textvariable = nomorstring).pack()
         perintah2 = Label(root,text= "Jenis kelamin anak:\n(input dengan angka)\n(1).Laki-laki\n(2).Perempuan ",font="Times 11 bold",).pack()
         input2 = Entry(root,textvariable = jkstring).pack()
@@ -130,7 +126,36 @@ def databalita():
         root.mainloop()
         
         nama = namastring.get()
-        nomor= nomorstring.get()
+        if len(nama)== 0:
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 400
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            Label(root,text="NAMA TIDAK BOLEH KOSONG", font= 'Gungsuh 12' ).pack(fill=X)
+            root.mainloop()
+            break
+        nomor= str(nomorstring.get())
+        if len(nomor) != 6:
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 400
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            Label(root,text="NOMOR INDUK HARUS 6 DIGIT ANGKA", font= 'Gungsuh 12' ).pack(fill=X)
+            root.mainloop()
+            break
+            
         jenis_kelamin= jkstring.get()
         #mendata bayi laki-laki
         if jenis_kelamin == ("1"):
@@ -402,7 +427,7 @@ def databalita():
             if 1<= tgl <=31:
                 bln= int(blnstring.get())
                 if 1<= bln <=12:                    
-                        thn= int(thnstring.get())        
+                        thn= int(thnstring.get())      
                 else:  
                      root = Tk()
                      root.title("\tDataGizi 1.0")
@@ -442,7 +467,6 @@ def databalita():
             dayvalue = tanggaldata.day
             tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
             tglcsv= (f"{dayvalue}-{monthvalue}-{yearvalue}")
-            databayi.append(tgl_data)
             #berfungsi untuk pembulatan hari usia
             dhari = dayvalue - tgl
             if dhari >= 15:
@@ -670,10 +694,10 @@ def databalita():
             break
 
         
-        import tkinter as tk       
+        import tkinter as tk
+        #adalah paket pengaturan jendela
         root = tk.Tk()       
         root.title("\tDataGizi 1.0")
-        #adalah paket pengaturan jendela
         width = 360
         height = 175
         screen_width = root.winfo_screenwidth()
@@ -783,8 +807,19 @@ def databalita():
         elif a == ("2"):
             continue    
         else:
-            print("Input salah")
-            None
+            root = tk.Tk()       
+            root.title("\tDataGizi 1.0")
+            width = 360
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+
+            Label(root,text="Mohon input dengan benar", font='Times 12 bold').pack(fill=X)
+            root.mainloop()
             break
              
 #fungsi cek data berdasarkan nama            
@@ -792,7 +827,8 @@ def datanama():
     namaanak = True  
     while namaanak:
         import csv
-        import tkinter as tk       
+        import tkinter as tk
+        
         root = tk.Tk()       
         root.title("\tDataGizi 1.0")
         #adalah paket pengaturan jendela
@@ -823,64 +859,111 @@ def datanama():
         B.pack(anchor = S,pady=5)
         root.mainloop()
         
-        nmr = namastring.get()
-        tglcsv = tglstring.get()
-        jeneng = jenengstring.get()
         
-
-        with open(f'datagizi_{tglcsv}.csv','r') as f:
-            readCSV = csv.reader(f,delimiter=',')
-            for row in readCSV:
-                if jeneng == row[0]:
-                    if nmr == row[1]:
-                        root= tk.Tk()
-                        root.title("\tDataGizi 1.0")     
-                        width = 440
-                        height = 280
-                        screen_width = root.winfo_screenwidth()
-                        screen_height = root.winfo_screenheight()
-                        x = (screen_width / 2) - (width / 2)
-                        y = (screen_height / 2) - (height / 2)
-                        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
-                        root.resizable(0, 0)
-                        
-                        Label(root,text=f'Nama\t\t:{row[0]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'Nomor\t\t:{row[1]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'Tanggal Lahir\t:{row[2]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'Tanggal Data\t:{row[3]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'Usia\t:{row[4]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'Jenis Kelamin\t:{row[5]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'BB\t:{row[6]}kg',font= 'Cambria 12').pack()
-                        Label(root,text=f'Indeks\t:{row[7]}',font= 'Cambria 12').pack()
-                        Label(root,text=f'Status Gizi\t\t:{row[8]}',font= 'Cambria 12').pack()
-                        
-                        B = Button(root, text = "CLOSE", command = close)
-                        B.pack(anchor = S)
-                        B.place(x= 195, y= 245)
-                        root.mainloop() 
+        tglcsv = tglstring.get()
+        if len(tglcsv) == 0:
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 360
+            height = 60
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            Label(root,text="TANGGAL TIDAK BOLEH KOSONG!!", font= 'Gungsuh 12' ).pack(fill=X)
+            break
+        nmr = namastring.get()    
+        jeneng = jenengstring.get()
+        #=======================menambahkan file csv ke dalam list
+        data =[]
+        try:
+            with open(f'datagizi_{tglcsv}.csv','r') as f:
+                readCSV = csv.reader(f,delimiter=',')
+                for row in readCSV:
+                    data.append(row)
+            #========================mencari nama anak
+            datacari =[]
+            i = 0
+            for a in data:
+                if jeneng == a[0]:
+                    if nmr == a[1]:
+                        #===========memasukkan data ke dalam list sesuai inputan apabila nama dan nomor ada pada csv
+                        datacari = data[i]
                     else:
                         root = Tk()
                         root.title("\tDataGizi 1.0")
-                        width = 360
-                        height = 60
+                        width = 600
+                        height = 25
                         screen_width = root.winfo_screenwidth()
                         screen_height = root.winfo_screenheight()
                         x = (screen_width / 2) - (width / 2)
                         y = (screen_height / 2) - (height / 2)
                         root.geometry("%dx%d+%d+%d" % (width, height, x, y))
                         root.resizable(0, 0)
-                        a2=("INPUT NOMOR ANDA SALAH!!\nANDA AKAN KEMBALI KE MENU AWAL.\nSILAHKAN ULANG KEMBALI PROGRAM.")
-                        
-                        p0 = Label(root,bg='red',font= 'Gungsuh 12', text= a2 )
-                        
-                        p0.pack(fill=X)       
+                        Label(root,text="NOMOR TIDAK COCOK ", font= 'Gungsuh 12' ).pack(fill=X)
                         root.mainloop()
-                        break   
-                else:
-                    None
-                    
-                    
-                    
+                        
+                i = i+1        
+            if (len(datacari)>0):
+                root= tk.Tk()
+                root.title("\tDataGizi 1.0")     
+                width = 440
+                height = 280
+                screen_width = root.winfo_screenwidth()
+                screen_height = root.winfo_screenheight()
+                x = (screen_width / 2) - (width / 2)
+                y = (screen_height / 2) - (height / 2)
+                root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                root.resizable(0, 0)
+                            
+                Label(root,text=f"Nama\t\t:{datacari[0]}",font= 'Cambria 12').pack()
+                Label(root,text=f"Nomor\t\t:{datacari[1]}",font= 'Cambria 12').pack()
+                Label(root,text=f"Tanggal Lahir\t:{datacari[2]}",font= 'Cambria 12').pack()
+                Label(root,text=f"Tanggal Data\t:{datacari[3]}",font= 'Cambria 12').pack()
+                Label(root,text=f"Usia\t:{datacari[4]}",font= 'Cambria 12').pack()
+                Label(root,text=f"Jenis Kelamin\t:{datacari[5]}",font= 'Cambria 12').pack()
+                Label(root,text=f"BB\t:{datacari[6]}kg",font= 'Cambria 12').pack()
+                Label(root,text=f"Indeks\t:{datacari[7]}",font= 'Cambria 12').pack()
+                Label(root,text=f"Status Gizi\t\t:{datacari[8]}",font= 'Cambria 12').pack()
+                            
+                B = Button(root, text = "CLOSE", command = close)
+                B.pack(anchor = S)
+                B.place(x= 195, y= 245)
+                root.mainloop()
+             
+            else:
+                root = Tk()
+                root.title("\tDataGizi 1.0")
+                width = 360
+                height = 25
+                screen_width = root.winfo_screenwidth()
+                screen_height = root.winfo_screenheight()
+                x = (screen_width / 2) - (width / 2)
+                y = (screen_height / 2) - (height / 2)
+                root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+                root.resizable(0, 0)
+                a2=("DATA TIDAK DITEMUKAN.")            
+                p0 = Label(root,font= 'Gungsuh 12', text= a2 )           
+                p0.pack(fill=X)       
+                root.mainloop()
+           
+        except FileNotFoundError:#========== pemenuhan aspek penanganan eksepsi
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 600
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            Label(root,text="ADA KESALAHAN PADA PENULISAN FORMAT TANGGAL/FILE TIDAK ADA ", font= 'Gungsuh 12' ).pack(fill=X)
+            root.mainloop()
+        
+                
                  
         import tkinter as tk       
         root = tk.Tk()       
@@ -958,67 +1041,97 @@ def baca():
     B = Button(root, text = "SUBMIT",font = 'Arial 11', command = close)
     B.pack(anchor = S,pady=5)
     root.mainloop()
-
-    root = Tk()
-    root.title("Tabel Data Gizi Balita")
-    width = 720
-    height = 400
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    x = (screen_width / 2) - (width / 2)
-    y = (screen_height / 2) - (height / 2)
-    root.geometry("%dx%d+%d+%d" % (width, height, x, y))
-    root.resizable(0, 0)
-    
-    TableMargin = Frame(root, width=720)
-    TableMargin.pack(side=TOP)
-    scrollbarx = Scrollbar(TableMargin, orient=HORIZONTAL)
-    scrollbary = Scrollbar(TableMargin, orient=VERTICAL)
-    tree = ttk.Treeview(TableMargin, columns=("NAMA","NOMOR", "TANGGAL LAHIR", "TANGGAL DATA",'USIA','JENIS KELAMIN','BB','INDEKS GIZI','STATUS GIZI'), height=400, selectmode="extended",
-                        yscrollcommand=scrollbary.set, xscrollcommand=scrollbarx.set)
-    scrollbary.config(command=tree.yview)
-    scrollbary.pack(side=RIGHT, fill=Y)
-    scrollbarx.config(command=tree.xview)
-    scrollbarx.pack(side=BOTTOM, fill=X)
-    tree.heading('NAMA', text="NAMA", anchor=W)
-    tree.heading('NOMOR', text="NOMOR", anchor=W)
-    tree.heading('TANGGAL LAHIR', text="TANGGAL LAHIR", anchor=W)
-    tree.heading('TANGGAL DATA', text="TANGGAL DATA", anchor=W)
-    tree.heading('USIA', text="USIA (bulan)", anchor=W)
-    tree.heading('JENIS KELAMIN', text="JENIS KELAMIN", anchor=W)
-    tree.heading('BB', text="BB (kg)", anchor=W)
-    tree.heading('INDEKS GIZI', text="INDEKS GIZI", anchor=W)
-    tree.heading('STATUS GIZI', text="STATUS GIZI", anchor=W)
-    tree.column('#0', stretch=NO, minwidth=0, width=0)
-    tree.column('#1', stretch=NO, minwidth=0, width=120)
-    tree.column('#2', stretch=NO, minwidth=0, width=120)
-    tree.column('#3', stretch=NO, minwidth=0, width=120)  
-    tree.column('#4', stretch=NO, minwidth=0, width=120)
-    tree.column('#5', stretch=NO, minwidth=0, width=120)
-    tree.column('#6', stretch=NO, minwidth=0, width=120)
-    tree.column('#7', stretch=NO, minwidth=0, width=120)
-    tree.column('#7', stretch=NO, minwidth=0, width=120)
-    
-    tree.pack()
-
     tl= tglcsv.get()
+    if len(tl) == 0:
+        root = Tk()
+        root.title("\tDataGizi 1.0")
+        width = 360
+        height = 60
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        x = (screen_width / 2) - (width / 2)
+        y = (screen_height / 2) - (height / 2)
+        root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+        root.resizable(0, 0)
+        Label(root,text="TANGGAL TIDAK BOLEH KOSONG!!", font= 'Gungsuh 12' ).pack(fill=X)
+        root.mainloop()
 
-    with open(f'datagizi_{tl}.csv') as f:
-      reader = csv.DictReader(f, delimiter=',')
-      for row in reader:
-        nama = row['NAMA']
-        nmr = row['NOMOR']
-        tl = row['TANGGAL LAHIR']
-        dt = row['TANGGAL DATA']
-        u = row['USIA']
-        jk = row['JENIS KELAMIN']
-        bb = row['BB(kg)']
-        i = row['INDEKS']
-        st = row['STATUS GIZI']
-        tree.insert("", 0, values=(nama,nmr,tl,dt,u,jk,bb,i,st))
-    root.mainloop()
-                   
-while True:
+        interface = True
+    #==================penanganan eksespsi
+    try: 
+        with open(f'datagizi_{tl}.csv') as f:
+            root = Tk()
+            root.title("Tabel Data Gizi Balita")
+            width = 720
+            height = 400
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+
+            TableMargin = Frame(root, width=720)
+            TableMargin.pack(side=TOP)
+            scrollbarx = Scrollbar(TableMargin, orient=HORIZONTAL)
+            scrollbary = Scrollbar(TableMargin, orient=VERTICAL)
+            tree = ttk.Treeview(TableMargin, columns=("NAMA","NOMOR", "TANGGAL LAHIR", "TANGGAL DATA",'USIA','JENIS KELAMIN','BB','INDEKS GIZI','STATUS GIZI'), height=400, selectmode="extended",
+                                yscrollcommand=scrollbary.set, xscrollcommand=scrollbarx.set)
+            scrollbary.config(command=tree.yview)
+            scrollbary.pack(side=RIGHT, fill=Y)
+            scrollbarx.config(command=tree.xview)
+            scrollbarx.pack(side=BOTTOM, fill=X)
+            tree.heading('NAMA', text="NAMA", anchor=W)
+            tree.heading('NOMOR', text="NOMOR", anchor=W)
+            tree.heading('TANGGAL LAHIR', text="TANGGAL LAHIR", anchor=W)
+            tree.heading('TANGGAL DATA', text="TANGGAL DATA", anchor=W)
+            tree.heading('USIA', text="USIA (bulan)", anchor=W)
+            tree.heading('JENIS KELAMIN', text="JENIS KELAMIN", anchor=W)
+            tree.heading('BB', text="BB (kg)", anchor=W)
+            tree.heading('INDEKS GIZI', text="INDEKS GIZI", anchor=W)
+            tree.heading('STATUS GIZI', text="STATUS GIZI", anchor=W)
+            tree.column('#0', stretch=NO, minwidth=0, width=0)
+            tree.column('#1', stretch=NO, minwidth=0, width=120)
+            tree.column('#2', stretch=NO, minwidth=0, width=120)
+            tree.column('#3', stretch=NO, minwidth=0, width=120)  
+            tree.column('#4', stretch=NO, minwidth=0, width=120)
+            tree.column('#5', stretch=NO, minwidth=0, width=120)
+            tree.column('#6', stretch=NO, minwidth=0, width=120)
+            tree.column('#7', stretch=NO, minwidth=0, width=120)
+            tree.column('#7', stretch=NO, minwidth=0, width=120)
+            
+            tree.pack()
+            
+            reader = csv.DictReader(f, delimiter=',')
+            for row in reader:
+                nama = row['NAMA']
+                nmr = row['NOMOR']
+                tl = row['TANGGAL LAHIR']
+                dt = row['TANGGAL DATA']
+                u = row['USIA']
+                jk = row['JENIS KELAMIN']
+                bb = row['BB(kg)']
+                i = row['INDEKS']
+                st = row['STATUS GIZI']
+                tree.insert("", 0, values=(nama,nmr,tl,dt,u,jk,bb,i,st))
+            root.mainloop()
+    except FileNotFoundError:
+            root = Tk()
+            root.title("\tDataGizi 1.0")
+            width = 600
+            height = 25
+            screen_width = root.winfo_screenwidth()
+            screen_height = root.winfo_screenheight()
+            x = (screen_width / 2) - (width / 2)
+            y = (screen_height / 2) - (height / 2)
+            root.geometry("%dx%d+%d+%d" % (width, height, x, y))
+            root.resizable(0, 0)
+            Label(root,text="ADA KESALAHAN PADA PENULISAN FORMAT TANGGAL/FILE TIDAK ADA ", font= 'Gungsuh 12' ).pack(fill=X)
+            root.mainloop()
+   
+#=============================fungsi tampilan menu    
+interface = True                   
+while interface:
 
     import tkinter as tk  
     #system('cls')     
@@ -1075,13 +1188,10 @@ while True:
         yearvalue = tanggaldata.year
         monthvalue = tanggaldata.month
         dayvalue = tanggaldata.day
-        tgl_data= (f"{dayvalue}/{monthvalue}/{yearvalue}")
         tglcsv= (f"{dayvalue}-{monthvalue}-{yearvalue}")
         header=['NAMA','NOMOR', 'TANGGAL LAHIR', 'TANGGAL DATA', 'USIA', 'JENIS KELAMIN', 'BB(kg)', 'INDEKS', 'STATUS GIZI']
         
         with open(f'datagizi_{tglcsv}.csv','a', newline='\n') as filecsv:
-            #datagizibalitacsv = {'NAMA' : nama,'NOMOR' : nomor, 'TANGGAL LAHIR': tgl_lahir, 'TANGGAL DATA' : tgl_data, 'USIA' : usia, 'JENIS KELAMIN' : jk, 'BB(kg)' : bb, 'INDEKS' : indeks, 'STATUS GIZI': status}
-        
             writer = csv.DictWriter(filecsv, fieldnames = header)
             if os.stat(f'datagizi_{tglcsv}.csv').st_size == 0:
                 writer.writeheader()                 
