@@ -38,8 +38,17 @@ Berikut merupakan referensi program yang Kelompok 9 buat
    
    Sumber : https://stackoverflow.com/questions/35662844/python-tkinter-entry-get
 
+
 7. Tabel data tentang penghitungan data gizi balita kami dapatkan dari
 
    Sumber : http://hukor.kemkes.go.id/uploads/produk_hukum/PMK_No__2_Th_2020_ttg_Standar_Antropometri_Anak.pdf
+
+8. Referensi program adalah tentang menemukan data pada CSV menggunakan nama. Kami memodifikasi dengan 
+   menambah aspek nomor dan tanggal data dalam pencarian 
+   
+   Sumber : https://www.petanikode.com/python-csv-crud/
+   
+9. Referensi berikut nya tentang penanganan eksepsi , kami menggunakan kode ini untuk mencegah error pada saat mencari file CSV apabila    tidak ditemukan karena file CSV kami terpisah berdasarkan tanggal pendataan
+   Sumber: https://www.pythonindo.com/penanganan-eksepsi/
 
    	
