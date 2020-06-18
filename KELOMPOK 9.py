@@ -109,7 +109,7 @@ def databalita():
         
         perintah1 = Label(root,text= "Nama anak:",font="Times 11 bold",).pack()
         input1 = Entry(root,textvariable = namastring).pack()
-        perintah = Label(root,text= "Nomor Induk Anak(6 digit angka):",font="Times 11 bold",).pack()
+        perintah = Label(root,text= "Nomor Induk Anak:",font="Times 11 bold",).pack()
         input1 = Entry(root,textvariable = nomorstring).pack()
         perintah2 = Label(root,text= "Jenis kelamin anak:\n(input dengan angka)\n(1).Laki-laki\n(2).Perempuan ",font="Times 11 bold",).pack()
         input2 = Entry(root,textvariable = jkstring).pack()
@@ -140,8 +140,8 @@ def databalita():
             Label(root,text="NAMA TIDAK BOLEH KOSONG", font= 'Gungsuh 12' ).pack(fill=X)
             root.mainloop()
             break
-        nomor= str(nomorstring.get())
-        if len(nomor) != 6:
+        nomor= nomorstring.get()
+        if len(nomor)== 0:
             root = Tk()
             root.title("\tDataGizi 1.0")
             width = 400
@@ -152,7 +152,7 @@ def databalita():
             y = (screen_height / 2) - (height / 2)
             root.geometry("%dx%d+%d+%d" % (width, height, x, y))
             root.resizable(0, 0)
-            Label(root,text="NOMOR INDUK HARUS 6 DIGIT ANGKA", font= 'Gungsuh 12' ).pack(fill=X)
+            Label(root,text="NOMOR INDUK HARUS DIISI", font= 'Gungsuh 12' ).pack(fill=X)
             root.mainloop()
             break
             
